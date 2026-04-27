@@ -1,0 +1,13 @@
+Run completed: 2026-04-17 22:31:56.381075
+Runtime: 53.0 seconds
+Tables: 37 | Figures: 14
+Mandatory gate:
+           Model Mandatory   N Sample_start Sample_end Span_years Duration_20Y
+1    M1 headline       YES 245   2004-08-01 2024-12-01      20.42          YES
+2 PPAC mechanism       YES 245   2004-08-01 2024-12-01      20.42          YES
+  Diagnostics_OK Bootstrap_run Gate_status
+1            YES           YES        PASS
+2            YES  Not required        PASS
+                                      Note
+1                 Mandatory headline model
+2 Mandatory first-stage transmission model

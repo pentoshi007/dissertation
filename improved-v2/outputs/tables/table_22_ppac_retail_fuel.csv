@@ -1,0 +1,2 @@
+"Specification","Requested_role","Sample_start","Sample_end","N","Span_years","Duration_20Y","CPT_pos","CPT_neg","CPTpos_p","CPTneg_p","Asym_p","Adj_R2","Note"
+"PPAC Delhi retail petrol model","Mandatory mechanism model","2004-08-01","2024-12-01",245,20.42,"YES",0.345911,0.191205,0,2e-04,0.0999,0.236,"20+ year direct fuel-price pass-through channel"
