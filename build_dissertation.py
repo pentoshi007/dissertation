@@ -407,7 +407,7 @@ def mnary_sum(sub, sup, body):
 # ============================================================
 chapter_heading("", "Abstract")
 add_para(
-    "India imports around 87% of its crude petroleum, yet oil-price shocks do not pass evenly through the domestic price system. This dissertation studies oil-price pass-through in India as a layered transmission process rather than as a single coefficient on the wholesale price index (WPI) or the consumer price index (CPI). The shock is traced across four points in the chain: international Brent crude in rupee terms, retail petrol prices at the pump, fuel-sensitive sub-indices of the wholesale and consumer price indices, and the two headline aggregates. Monthly data are drawn from official WPI series spliced to the 2011-12 base, Petroleum Planning and Analysis Cell (PPAC) retail fuel prices, Brent crude prices, the INR/USD exchange rate, and CPI series, with the WPI evidence covering a long historical sample from 1983 and the CPI and PPAC retail fuel evidence covering the shorter but policy-relevant post-2004 period. The main estimates use short-run asymmetric autoregressive distributed lag (ADL) models in log differences with Newey-West HAC inference, cumulative pass-through tests, and a restricted-residual circular block bootstrap with 4,999 replications for symmetry checks. Nonlinear ARDL bounds tests are reported as supplementary long-run evidence. The evidence shows a clear ordering. Retail petrol and WPI Fuel and Power respond strongly to rupee oil shocks; headline WPI responds significantly but with a much smaller coefficient; headline CPI shows only weak positive pass-through and no reliable evidence of short-run asymmetry. The pre/post-2010 WPI split is consistent with stronger pass-through after the move toward more market-linked fuel pricing, although it should be read as institutional evidence rather than a clean causal estimate of deregulation. The conclusion is that oil shocks are not absent from Indian prices; they are absorbed unevenly, with much of the shock diluted before it reaches headline consumer inflation."
+    "India imports around 87% of its crude petroleum, yet oil-price shocks do not pass evenly through the domestic price system. This dissertation studies oil-price pass-through in India as a layered transmission process rather than as a single coefficient on the wholesale price index (WPI) or the consumer price index (CPI). The shock is traced across four points in the chain: international Brent crude in rupee terms, retail petrol prices at the pump, fuel-sensitive sub-indices of the wholesale and consumer price indices, and the two headline aggregates. Monthly data are drawn from official WPI series spliced to the 2011-12 base, Petroleum Planning and Analysis Cell (PPAC) retail fuel prices, Brent crude prices, the INR/USD exchange rate, and CPI series, with the WPI evidence covering a long historical sample from 1983 and the CPI and PPAC retail fuel evidence covering the shorter but policy-relevant post-2004 period. The estimates use short-run asymmetric autoregressive distributed lag (ADL) models in log differences with Newey-West HAC inference, cumulative pass-through tests, and a restricted-residual circular block bootstrap with 4,999 replications for symmetry checks. The evidence shows a clear ordering. Retail petrol and WPI Fuel and Power respond strongly to rupee oil shocks; headline WPI responds significantly but with a much smaller coefficient; headline CPI shows only weak positive pass-through and no reliable evidence of short-run asymmetry. The pre/post-2010 WPI split is consistent with stronger pass-through after the move toward more market-linked fuel pricing, although it should be read as institutional evidence rather than a clean causal estimate of deregulation. The conclusion is that oil shocks are not absent from Indian prices; they are absorbed unevenly, with much of the shock diluted before it reaches headline consumer inflation."
 )
 page_break()
 
@@ -429,7 +429,7 @@ add_para(
     "The research question asked here is intentionally architectural: how do global oil-price shocks transmit across India's wholesale, retail fuel, fuel-sensitive consumer, and headline consumer price layers, and where does the pass-through weaken? The framing is not whether oil affects CPI, nor whether pass-through is asymmetric. Those are secondary questions. The main framing is transmission and attenuation across layers."
 )
 add_para(
-    "To estimate pass-through at these points in the chain, the dissertation employs short-run asymmetric ADL models in log differences with Newey-West heteroscedasticity-and-autocorrelation-consistent inference. Positive and negative oil-change components are entered separately, cumulative pass-through coefficients are summarised across the lag window, and a Wald test is used to ask whether the positive and negative cumulative effects are equal. Symmetry is also assessed using a restricted-residual circular block bootstrap with 4,999 replications. A nonlinear ARDL battery in levels, following the bounds-testing approach of Pesaran, Shin, and Smith (2001), is reported in the appendix as supplementary long-run evidence. Granger-causality tests and Bai-Perron structural break tests are used to support the directional reading of the chain rather than to claim structural causality."
+    "To estimate pass-through at these points in the chain, the dissertation employs short-run asymmetric ADL models in log differences with Newey-West heteroscedasticity-and-autocorrelation-consistent inference. Positive and negative oil-change components are entered separately, cumulative pass-through coefficients are summarised across the lag window, and a Wald test is used to ask whether the positive and negative cumulative effects are equal. Symmetry is also assessed using a restricted-residual circular block bootstrap with 4,999 replications. Granger-causality tests and Bai-Perron structural break tests are used to support the directional reading of the chain rather than to claim structural causality."
 )
 
 section_heading("1.3 Main Findings")
@@ -447,7 +447,7 @@ add_para(
     "The contribution of this dissertation is therefore modest and architectural. It is not the introduction of a new estimator and it is not a claim of being the first study of oil-price pass-through in India. The paper contributes by treating oil-price pass-through in India as a layered transmission problem, showing that oil shocks are strong in retail fuel and fuel-sensitive prices but much weaker in headline consumer inflation. The pre/post-2010 wholesale split is reported as institutional evidence consistent with more market-linked fuel pricing rather than as a clean causal estimate of deregulation."
 )
 add_para(
-    "The rest of the dissertation is organised as follows. Chapter 2 places the empirical design inside India's oil-pricing institutions and the existing literature. Chapter 3 describes the data, the chained series, and the variable transformations. Chapter 4 develops the ADL specification, the inference strategy, and the role of NARDL as supplementary evidence. Chapter 5 presents the layered results in order: long-horizon headline WPI, WPI Fuel and Power, PPAC retail petrol, the CPI Fuel and Light bridge, headline CPI, the integrated attenuation map, and the pre/post-2010 wholesale split. Chapter 6 reports robustness checks, diagnostics, and the limitations of the design. The conclusion returns to the research question and answers it directly."
+    "The rest of the dissertation is organised as follows. Chapter 2 places the empirical design inside India's oil-pricing institutions and the existing literature. Chapter 3 describes the data, the chained series, and the variable transformations. Chapter 4 develops the ADL specification, the inference strategy, and the supporting diagnostic tests. Chapter 5 presents the layered results in order: long-horizon headline WPI, WPI Fuel and Power, PPAC retail petrol, the CPI Fuel and Light bridge, headline CPI, the integrated attenuation map, and the pre/post-2010 wholesale split. Chapter 6 reports robustness checks, diagnostics, and the limitations of the design. The conclusion returns to the research question and answers it directly."
 )
 page_break()
 
@@ -478,7 +478,7 @@ add_para(
     "Pal and Mitra (2016) provide evidence of asymmetric oil-product pricing in India using a multiple-threshold nonlinear ARDL approach, and motivate the asymmetric specification used in this dissertation, where positive and negative oil shocks are entered as separate cumulative effects. Pradeep (2022) studies the impact of diesel price reform on the asymmetricity of oil-price pass-through to disaggregated wholesale prices, retail diesel, and aggregate consumer prices, and is the closest in spirit to the layered design adopted here, although the present dissertation extends the layered map to include retail petrol, the WPI Fuel and Power group, the CPI Fuel and Light bridge series, and headline CPI within a single empirical frame."
 )
 add_para(
-    "On the methodological side, Pesaran, Shin, and Smith (2001) provide the bounds-testing framework that justifies the NARDL appendix. Shin, Yu, and Greenwood-Nimmo (2014) provide the nonlinear ARDL decomposition that allows positive and negative components of the oil shock to be entered separately. Newey and West (1987) provide the HAC covariance estimator used for inference in the ADL models. Bai and Perron (2003) provide the multiple-break test used in the structural-break diagnostics. These references are used because each one performs concrete work in the empirical design rather than as decoration."
+    "On the methodological side, Newey and West (1987) provide the HAC covariance estimator used for inference in the ADL models. Bai and Perron (2003) provide the multiple-break test used in the structural-break diagnostics. The asymmetric split between positive and negative oil changes follows the applied pass-through literature and is used here as a transparent way to test whether cumulative positive and negative responses differ. These references are used because each one performs concrete work in the empirical design rather than as decoration."
 )
 
 section_heading("2.3 Gap and Hypotheses")
@@ -576,11 +576,11 @@ add_note(
 )
 
 add_figure(
-    os.path.join(ROOT, "wpi/outputs/figures/fig_01_wpi_chained_series.png"),
+    os.path.join(ROOT, "models", "wpi", "outputs", "figures", "fig_01_wpi_chained_series.png"),
     "Figure 3.1: Chained headline WPI and Fuel and Power series, rebased to 2011-12 = 100.",
 )
 add_figure(
-    os.path.join(ROOT, "wpi/outputs/figures/fig_03_oil_decomposition.png"),
+    os.path.join(ROOT, "models", "wpi", "outputs", "figures", "fig_03_oil_decomposition.png"),
     "Figure 3.2: Decomposition of the rupee oil price into Brent and INR/USD contributions.",
 )
 page_break()
@@ -592,7 +592,7 @@ chapter_heading("Chapter 4", "Empirical Methodology")
 
 section_heading("4.1 Main ADL Specification")
 add_para(
-    "The main empirical strategy is a short-run asymmetric autoregressive distributed lag model in log differences. The asymmetry is introduced by splitting the rupee oil log difference into positive and negative components, following the decomposition convention of Shin, Yu, and Greenwood-Nimmo (2014). Writing the rupee oil log difference as in equation (4.1),"
+    "The main empirical strategy is a short-run asymmetric autoregressive distributed lag model in log differences. The asymmetry is introduced by splitting the rupee oil log difference into positive and negative components. Writing the rupee oil log difference as in equation (4.1),"
 )
 
 # Eq 4.1: Δx_t = ln(x_t) - ln(x_{t-1})
@@ -689,10 +689,7 @@ add_para(
     "Lag selection in the main specifications follows the model-gate and lag-selection tables produced for each layer. The own-lag order is set to twelve for the long WPI specifications to capture annual seasonality even after month fixed effects are imposed; the distributed-lag order on the oil components is set to six for the wholesale specifications and is inherited from the channel-mechanism model-gate specifications for the retail petrol, CPI Fuel and Light, and headline CPI layers. Information criteria (AIC, BIC, and HQIC) and a sequence of nested Wald tests on the longest insignificant lag confirm that these choices are not extreme; results are stable when the distributed-lag order is varied between four and eight."
 )
 
-section_heading("4.4 NARDL as Supplementary Evidence")
-add_para(
-    "The dissertation also estimates a nonlinear ARDL battery in levels following the bounds-testing framework of Pesaran, Shin, and Smith (2001) and the asymmetric decomposition of Shin, Yu, and Greenwood-Nimmo (2014). The NARDL specifications provide long-run supplementary evidence and are summarised in the robustness chapter rather than treated as primary identification, because the main conclusions are based on the differenced ADL specifications: the differenced specifications are easier to interpret, less dependent on the level-series integration assumptions, and directly aligned with month-on-month inflation dynamics. The bounds critical values, the long-run asymmetry tests, and the error-correction terms produced by the NARDL battery are described in summary form in Section 6.1, with the error-correction terms read only as descriptive statistics rather than as structural disequilibrium parameters."
-)
+section_heading("4.4 Supporting Tests")
 add_para(
     "Two additional tools are used in support of interpretation rather than as identification claims. Granger-causality tests are reported for oil to WPI and oil to Fuel and Power. They support a directional reading of the chain but do not establish structural causality. Bai-Perron structural break tests are used to verify that the empirical samples are not dominated by a single regime change in the relationship between rupee oil prices and the dependent series; where breaks are detected, the pre/post-2010 wholesale split addresses them in the most institutionally relevant way."
 )
@@ -712,7 +709,7 @@ add_para(
 )
 
 add_figure(
-    os.path.join(ROOT, "wpi/outputs/figures/fig_04_cumulative_passthrough.png"),
+    os.path.join(ROOT, "models", "wpi", "outputs", "figures", "fig_04_cumulative_passthrough.png"),
     "Figure 5.1: Cumulative pass-through profile for headline WPI from the asymmetric ADL specification.",
 )
 
@@ -778,7 +775,7 @@ add_para(
 )
 
 add_figure(
-    os.path.join(ROOT, "improved-v2", "outputs", "figures", "fig_13_dilution_chain.png"),
+    os.path.join(ROOT, "models", "cpi", "outputs", "figures", "fig_13_dilution_chain.png"),
     "Figure 5.2: Dilution chain showing cumulative pass-through across retail petrol, WPI Fuel and Power, CPI Fuel and Light, headline WPI, and headline CPI.",
 )
 
@@ -796,7 +793,7 @@ add_para(
 )
 
 add_figure(
-    os.path.join(ROOT, "wpi/outputs/figures/fig_05_subsample_comparison.png"),
+    os.path.join(ROOT, "models", "wpi", "outputs", "figures", "fig_05_subsample_comparison.png"),
     "Figure 5.3: Pre/post-2010 cumulative pass-through for headline WPI and WPI Fuel and Power.",
 )
 page_break()
@@ -818,9 +815,6 @@ add_para(
 )
 add_para(
     "The fifth robustness check addresses the COVID-19 window and outlier sensitivity. Excluding the COVID window from the headline CPI specification and winsorising the dependent log differences at the one-percent and ninety-nine-percent tails do not overturn the main CPI conclusion. The positive cumulative pass-through remains small and not statistically significant at conventional levels. The results are therefore not driven by extreme observations."
-)
-add_para(
-    "The sixth robustness check is the supplementary NARDL battery. The bounds tests support a long-run levels relationship in some specifications, and long-run asymmetry is detected in some of them. These results are read as supplementary evidence rather than as a primary identification. The reason is straightforward: the NARDL specification depends on the level-series integration assumptions and on the lag selection criteria used to set up the bounds test. The differenced ADL specifications used in the main text do not require these assumptions and are therefore the more defensible workhorse for short-run pass-through inference."
 )
 add_para(
     "Lag-sensitivity and rolling-window checks add a final layer of reassurance. Re-estimating the headline WPI and headline CPI specifications under alternative lag windows (oil lags from zero to four and from zero to eight, own lags of six and eighteen) does not change the qualitative ordering of Table 5.1, and rolling-window estimates of the headline CPI cumulative pass-through hover around the central estimate without crossing into a significant range at conventional levels."
@@ -863,37 +857,6 @@ add_para(
 page_break()
 
 # ============================================================
-# APPENDIX A: NARDL
-# ============================================================
-chapter_heading("Appendix A", "Nonlinear ARDL Bounds Battery")
-
-add_para(
-    "This appendix reports the supplementary nonlinear ARDL battery referenced in Chapters 4 and 6. Each specification is a NARDL in levels following Pesaran, Shin, and Smith (2001) with the asymmetric decomposition of Shin, Yu, and Greenwood-Nimmo (2014). The dependent variable is the log of the wholesale price index, and the regressors are the cumulative positive and negative log changes in the relevant oil-side variable (Brent crude, the INR/USD exchange rate, or the rupee oil price). The bounds F-statistic is reported alongside the error-correction term (ECT), the short-run (SR) Wald p-value for symmetry, and the long-run (LR) Wald p-value for symmetry. The error-correction term is treated as a descriptive statistic of model adjustment speed rather than as a structural disequilibrium parameter."
-)
-
-add_table(
-    headers=["Specification", "Sample", "N", "Bounds F", "ECT", "ECT p", "SR sym. p", "LR sym. p"],
-    rows=[
-        ["WPI ~ Brent", "1997-04 to 2025-03", "333", "27.66", "−0.0189", "0.005", "0.618", "0.001"],
-        ["WPI ~ Brent | EXR", "1997-04 to 2025-03", "333", "21.40", "−0.0185", "0.006", "0.522", "<0.001"],
-        ["WPI ~ Rupee oil", "1997-04 to 2025-03", "331", "21.43", "−0.0170", "0.011", "0.760", "0.023"],
-        ["Fuel & Power ~ Rupee oil", "1997-04 to 2025-03", "331", "34.15", "−0.0811", "<0.001", "0.233", "<0.001"],
-    ],
-    caption="Table A.1: NARDL bounds-battery summary",
-    col_widths=[1.55, 1.10, 0.40, 0.60, 0.60, 0.55, 0.55, 0.55],
-    font_size=9,
-)
-add_note(
-    "Bounds F-statistics exceed the upper I(1) critical value at the 1 percent level for all four specifications, supporting a long-run levels relationship between the dependent variable and the asymmetric oil-side regressors. The error-correction terms are negative and significant in each specification, with magnitudes consistent with slow adjustment to the long-run relationship. The short-run Wald symmetry test does not reject symmetric short-run pass-through in any of the four specifications, while the long-run Wald symmetry test rejects symmetry in three of the four. These NARDL results are reported as supplementary evidence; the main conclusions of the dissertation rest on the differenced ADL specifications in the main text."
-)
-
-add_para(
-    "Two readings of Table A.1 are worth keeping. First, the long-run asymmetry signal that emerges in the levels NARDL is consistent with the marginal short-run asymmetry observed at the retail petrol layer in the main text, but it does not reverse the central conclusion that short-run asymmetry is weak across the layered chain. Second, the NARDL specification depends on the level-series integration assumptions and on the lag-selection criteria used to set up the bounds test. The differenced ADL specifications used in the main text do not require these assumptions and are therefore the more defensible workhorse for short-run pass-through inference."
-)
-
-page_break()
-
-# ============================================================
 # REFERENCES
 # ============================================================
 chapter_heading("", "References")
@@ -907,10 +870,8 @@ refs = [
     "Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. Econometrica, 55(3), 703–708. https://doi.org/10.2307/1913610",
     "Office of the Economic Adviser. (2017). Manual on Wholesale Price Index: Base 2011-12 = 100. Department for Promotion of Industry and Internal Trade, Ministry of Commerce and Industry, Government of India.",
     "Pal, D., & Mitra, S. K. (2016). Asymmetric oil product pricing in India: Evidence from a multiple threshold nonlinear ARDL model. Economic Modelling, 59, 314–328. https://doi.org/10.1016/j.econmod.2016.08.003",
-    "Pesaran, M. H., Shin, Y., & Smith, R. J. (2001). Bounds testing approaches to the analysis of level relationships. Journal of Applied Econometrics, 16(3), 289–326. https://doi.org/10.1002/jae.616",
     "Petroleum Planning and Analysis Cell. (2024). Ready reckoner: India's oil and gas. Ministry of Petroleum and Natural Gas, Government of India.",
     "Pradeep, S. (2022). Impact of diesel price reforms on asymmetricity of oil price pass-through to inflation: Indian perspective. The Journal of Economic Asymmetries, 26, e00249. https://doi.org/10.1016/j.jeca.2022.e00249",
-    "Shin, Y., Yu, B., & Greenwood-Nimmo, M. (2014). Modelling asymmetric cointegration and dynamic multipliers in a nonlinear ARDL framework. In R. C. Sickles & W. C. Horrace (Eds.), Festschrift in honor of Peter Schmidt: Econometric methods and applications (pp. 281–314). Springer. https://doi.org/10.1007/978-1-4899-8008-3_9",
     "World Bank. (2026). Commodity price data: The Pink Sheet. World Bank Commodity Markets.",
 ]
 for r in refs:

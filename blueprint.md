@@ -1,583 +1,566 @@
-## Abstract
+# From wholesale prices to consumer inflation: layered pass-through of global oil shocks in India, 1983-2026
 
-Write the final paper from the abstract onward. Do not add a title page, declaration, certificate, acknowledgements, table of contents, list of figures, or list of tables. Those items will be added separately. The paper should read like a serious university dissertation chapter or compact dissertation-style paper, not like a generic AI-generated report. Keep the full paper under 8,000 words, excluding only front-matter items that are not part of this file.
+Subtitle: Evidence from short-run asymmetric ADL models
 
-The abstract should be 180-250 words. It should state the research problem, data, empirical method, main findings, and conclusion in one tight paragraph. Do not use decorative language. Do not open with a broad statement such as "Oil is the lifeblood of the economy." Start with the empirical problem: India imports most of the crude oil it consumes, but oil-price shocks do not pass evenly through the domestic price system.
+This blueprint is the writing plan for the dissertation from the abstract onward. It is not meant to be copied mechanically. Use it as the final guide for structure, word count, results, table placement, figure placement, citations, and tone.
 
-The abstract should make four points:
+The dissertation should read like careful work by an MS Economics student. Keep the language plain. Do not decorate the findings. Do not overclaim. Do not use em dashes. Use short sentences when the point is simple. Use longer sentences only when the economics needs it.
 
-1. The study examines oil-price pass-through in India as a layered transmission process rather than as a single CPI or WPI coefficient.
-2. The data come from the `wpi`, `improved-v2`, and `data` folders only. The WPI evidence covers a long historical sample, while the CPI and PPAC retail fuel evidence covers the shorter but policy-relevant post-2004 period.
-3. The main method is a short-run asymmetric ADL model in log differences, with Newey-West HAC inference and bootstrap symmetry checks where available. NARDL should be mentioned only as supplementary long-run evidence, not as the main identification strategy.
-4. The core result is attenuation: pass-through is strongest at the retail fuel and WPI Fuel and Power layers, visible but small in headline WPI, and weak or statistically indistinguishable from zero in headline CPI.
+The final dissertation should be around 7,000 words in total. A good target is 6,500 to 6,900 words for the main text, including the abstract and conclusion. If references are counted by the department, keep the main text closer to 6,500 words so the final file stays near 7,000 words. If references are not counted, the main text can be closer to 6,800 words.
 
-Suggested abstract wording:
+The study is ADL-only. Do not include a NARDL method, bounds-test evidence, error-correction discussion, or a long-run appendix. The central contribution is the layered pattern of oil-price pass-through in India: strong transmission in retail petrol and fuel-sensitive wholesale prices, moderate transmission in CPI Fuel and Light, modest but significant transmission in headline WPI, and weak transmission in headline CPI.
 
-> This study examines how global oil-price shocks move through India's domestic price system. Instead of treating oil pass-through as a single relationship between crude oil and headline inflation, the paper traces the shock across wholesale prices, retail petrol prices, fuel-sensitive indices, and headline consumer inflation. Monthly data are drawn from official WPI series, PPAC retail fuel prices, Brent crude prices, INR/USD exchange rates, CPI series, and the processed datasets in `wpi`, `improved-v2`, and `data`. The main estimates use short-run asymmetric ADL models in log differences with Newey-West HAC inference, cumulative pass-through tests, and bootstrap symmetry checks. The evidence shows a clear ordering. Retail petrol and WPI Fuel and Power respond strongly to oil shocks; headline WPI responds significantly but with a much smaller coefficient; headline CPI shows only weak positive pass-through and no reliable evidence of short-run asymmetry. The pre/post-2010 WPI split suggests stronger pass-through after the move toward more market-linked fuel pricing, but this should be interpreted as institutional evidence rather than a clean causal estimate of deregulation. The paper concludes that Indian oil shocks are not absent from domestic prices. They are absorbed unevenly, with much of the shock diluted before it reaches headline consumer inflation.
+## Final word budget
 
-## Chapter 1: Introduction
+Use this word budget while drafting. It keeps the dissertation close to 7,000 words without making the results chapter too thin.
 
-The introduction should be about 900-1,100 words. It should tell the reader why the question matters, what is missing in existing studies, what this paper does differently, and what the main answer is. Keep the opening grounded in India. Do not start with a global history of oil shocks unless it directly supports the Indian research question.
+| Part                                  | Target words | Purpose                                                                          |
+| ------------------------------------- | -----------: | -------------------------------------------------------------------------------- |
+| Abstract                              |          200 | State the question, method, and main result.                                     |
+| Chapter 1: Introduction               |          800 | Motivate the puzzle and state the contribution.                                  |
+| Chapter 2: Background and literature  |          850 | Explain India's fuel-price setting and place the study in the literature.        |
+| Chapter 3: Data and variables         |          850 | Describe sources, transformations, samples, and the constructed rupee oil shock. |
+| Chapter 4: Methodology                |          850 | Explain the short-run asymmetric ADL model and inference.                        |
+| Chapter 5: Results                    |        1,800 | Present the layered findings and the attenuation result.                         |
+| Chapter 6: Robustness and limitations |          700 | Report checks and caveats without overloading the paper.                         |
+| Conclusion                            |          550 | Answer the research question directly.                                           |
+| References and captions               |   400 to 600 | Keep references relevant and APA formatted.                                      |
+
+Do not treat the word count as equal space for every chapter. Chapter 5 deserves the most space because this is where the dissertation earns its argument.
+
+## Title and research question
+
+Use this title:
+
+> From wholesale prices to consumer inflation: layered pass-through of global oil shocks in India, 1983-2026
+
+Use this subtitle:
+
+> Evidence from short-run asymmetric ADL models
 
 Use this research question:
 
-> How do global oil-price shocks transmit across India's wholesale, retail fuel, fuel-sensitive consumer, and headline consumer price layers, and where does the pass-through weaken?
+> How do global oil-price shocks transmit across India's wholesale, retail fuel, fuel-sensitive consumer, and headline consumer price layers, and where does this pass-through weaken?
 
-Do not frame the paper as "Does oil affect CPI?" or "Is oil pass-through asymmetric?" Those are secondary questions. The main framing is transmission and attenuation across layers.
+This title is better than a CPI-only title because the evidence goes beyond headline CPI. The stronger story is that oil shocks appear clearly in fuel-related layers, then become much weaker in headline consumer inflation.
 
-The introduction should follow this order:
+## Core logic of the layered chain
 
-1. India is structurally exposed to oil shocks because crude oil is largely imported and priced in dollars. The rupee oil price combines the global Brent price and the INR/USD exchange rate.
-2. The policy puzzle is that oil shocks are visible in upstream and fuel-related prices, but the headline CPI response is small. This is not a contradiction; it means the shock weakens somewhere inside the price system.
-3. Existing Indian studies often examine one layer at a time: WPI, CPI, or retail fuel. This paper links those layers in one empirical design.
-4. The paper uses two model families, but only one is the main workhorse. The body should rely on short-run ADL models in differences. NARDL belongs in a short appendix or supplementary section.
-5. State the main results early: WPI headline CPT+ about 0.030, WPI Fuel and Power CPT+ about 0.287, PPAC retail petrol CPT+ about 0.346, CPI Fuel and Light bridge CPT+ about 0.178, and headline CPI CPT+ about 0.021 with p = 0.122.
-6. State the contribution modestly. The contribution is not a new estimator or a claim of being the first Indian oil paper. The contribution is the integrated map of where the oil shock survives and where it fades.
+The layered chain is correct, but it must be written carefully. Do not present it as one mechanical equation in which the same shock moves step by step from Brent to WPI to CPI. The study uses separate reduced-form equations for related layers of the price system.
 
-Allowed contribution sentence:
+Use two linked ideas.
 
-> The paper contributes by treating oil-price pass-through in India as a layered transmission problem, showing that oil shocks are strong in retail fuel and fuel-sensitive prices but much weaker in headline consumer inflation.
+First, the CPI mechanism chain is:
 
-Do not write:
+`Brent crude price -> PPAC retail petrol -> CPI Fuel and Light -> headline CPI`
 
-- "This paper proves oil shocks do not affect CPI."
-- "This paper establishes the first complete theory of oil pass-through in India."
-- "The results confirm asymmetric pass-through."
-- "Deregulation caused the entire post-2010 increase."
+This chain is the cleanest consumer-price transmission story. Brent is the global shock. PPAC petrol is the direct domestic retail fuel layer. CPI Fuel and Light is the fuel-sensitive consumer layer. Headline CPI is the broad consumer endpoint.
 
-## Chapter 2: Institutional Background and Literature
+Second, the wholesale map is:
 
-This chapter should be 1,100-1,300 words. It should combine institutional context and literature review. Do not split it into a long generic literature survey. The literature should be used only to position the paper's design.
+`rupee oil price -> WPI Fuel and Power -> headline WPI`
 
-Use three subsections.
+This is not a claim that WPI causes CPI. It shows how the same external oil pressure appears more strongly in wholesale fuel-sensitive prices than in the broader wholesale index.
 
-### 2.1 India's Oil Pricing and Inflation Context
+The full dissertation combines these two views. The WPI evidence shows upstream and wholesale pass-through. The CPI evidence shows how much of the fuel shock survives into consumer prices. Together, they support a layered attenuation interpretation.
 
-Explain the chain in simple terms:
+Correct claim:
 
-`Brent crude price -> INR/USD exchange rate -> rupee oil price -> domestic retail fuel prices -> fuel-sensitive WPI/CPI components -> headline WPI/CPI`.
+> Oil shocks are strong in retail fuel and fuel-sensitive wholesale prices, smaller in CPI Fuel and Light, modest in headline WPI, and weak in headline CPI.
 
-The important institutional points are:
+Incorrect claim:
 
-- India imports most of its crude oil requirement, so global oil prices enter the domestic economy as an external cost shock.
-- Oil is priced internationally in US dollars, which makes the exchange rate part of the domestic shock.
-- Retail fuel pricing in India has moved from administered pricing toward more market-linked pricing, with petrol deregulation in June 2010 and diesel deregulation in October 2014.
-- WPI and CPI answer different empirical questions. WPI is closer to upstream and producer-side price pressure. CPI is closer to household-facing inflation and the monetary-policy target.
-- CPI dilution is expected because the direct fuel weight in the CPI basket is limited, while food and non-fuel services dominate household consumption weights.
+> Oil prices pass mechanically from Brent to WPI to CPI through one single chain.
 
-Use the RBI/MoSPI CPI weight evidence only as support. Do not overbuild the paper around basket weights unless the final draft has exact official weights and a properly formatted citation.
+Avoid that second claim. It is too strong and not what the models estimate.
 
-### 2.2 What Existing Studies Already Show
+## Abstract
 
-Keep the literature focused. Use only enough references to support the paper's framing:
+Target: 180 to 220 words. One paragraph.
 
-- Mandal, Bhattacharyya, and Bhoi (2012) show that oil-price pass-through in India became more relevant under more frequent domestic price adjustment.
-- Bhanumurthy, Das, and Bose (2012) discuss oil shocks, pass-through policy, inflation, fiscal costs, and macroeconomic trade-offs in India.
-- Pal and Mitra (2016) provide evidence of asymmetric oil-product pricing in India.
-- Pradeep (2022) studies diesel price reform and asymmetric oil pass-through to disaggregated wholesale prices, retail diesel prices, and aggregate consumer prices.
-- Pesaran, Shin, and Smith (2001) justify the bounds-testing framework used for the appendix NARDL models.
-- Shin, Yu, and Greenwood-Nimmo (2014) justify the nonlinear ARDL decomposition.
-- Newey and West (1987) justify HAC standard errors in the ADL models.
+Start with the empirical problem. Do not begin with a general sentence about the global economy. Mention India, imported crude oil, dollar pricing, WPI, retail fuel, CPI Fuel and Light, and headline CPI.
 
-If the writer adds more references, each one must do real work. Do not add references merely to make the bibliography look longer.
+Suggested abstract:
 
-### 2.3 Gap and Hypotheses
+> This dissertation studies how global oil-price shocks pass through India's domestic price system. India imports most of its crude oil, so Brent price movements and the INR/USD exchange rate together create an external cost shock for domestic prices. Instead of estimating only the relationship between oil and headline CPI, the dissertation follows the shock across several layers: headline WPI, WPI Fuel and Power, PPAC retail petrol, CPI Fuel and Light, and headline CPI. The empirical strategy uses monthly data and short-run asymmetric ADL models in log differences. Inference is based on Newey-West HAC standard errors, cumulative pass-through tests, bootstrap symmetry checks, and diagnostic triage. The results show a clear attenuation pattern. Retail petrol responds strongly to Brent shocks, and WPI Fuel and Power responds strongly to rupee oil shocks. CPI Fuel and Light shows a smaller but significant bridge response. Headline WPI shows statistically significant but modest pass-through, while headline CPI shows only weak positive pass-through that is not statistically significant at conventional levels. Short-run asymmetry is not the main finding. It is only marginal in the retail petrol model and is not supported in the headline WPI, WPI Fuel and Power, or headline CPI models.
 
-The gap is architectural. Existing studies often answer one of these questions separately:
+## Chapter 1: introduction
 
-- Does oil affect WPI?
-- Does oil affect CPI?
-- Do fuel prices adjust asymmetrically?
-- Did deregulation alter pass-through?
+Target: about 800 words.
 
-This paper asks a different question: where does the shock weaken as it moves through the price system?
+The introduction should make the reader understand the puzzle quickly. India is highly exposed to oil imports, but headline CPI does not move one-for-one with global oil prices. The reason is not that oil is irrelevant. The reason is that price transmission is filtered through exchange rates, fuel pricing, taxes, margins, basket weights, and index construction.
 
-Use these hypotheses:
+Open with India, not with a broad history of oil shocks. A good first paragraph would say that imported crude is priced in dollars, so the domestic pressure from oil depends on both Brent prices and the exchange rate. Then explain why WPI and CPI may show different responses. WPI is closer to producer costs. CPI is the household-facing index and the inflation-targeting index, but it has a much broader basket.
 
-- H1: Oil shocks pass through significantly to headline WPI, but the magnitude is small.
-- H2: Pass-through is stronger in retail fuel and fuel-sensitive price layers than in headline indices.
-- H3: Headline CPI shows attenuation relative to upstream and fuel-sensitive layers.
-- H4: Post-2010 wholesale pass-through is larger than pre-2010 pass-through, consistent with more market-linked fuel pricing.
-- H5: Short-run asymmetry is not the central finding. It appears most clearly, and only marginally, at the retail petrol layer.
+The introduction should state the contribution in plain language:
 
-## Chapter 3: Data and Variables
+> The dissertation treats oil pass-through as a layered transmission problem rather than a single elasticity between crude oil and headline inflation.
 
-This chapter should be 900-1,100 words. Use only `data`, `wpi`, and `improved-v2`. Do not use the older `improved` or `older` folders unless the user explicitly asks for a historical comparison.
+State the verified results early, but do not overload the first page with too many numbers. Use one compact paragraph:
 
-### 3.1 Source Priority
+- Headline WPI: CPT+ = 0.0301, p = 0.0240; CPT- = 0.0374, p = 0.0012; asymmetry p = 0.6727.
+- WPI Fuel and Power: CPT+ = 0.2866, p < 0.001; CPT- = 0.2677, p < 0.001; asymmetry p = 0.7832.
+- PPAC Delhi retail petrol: CPT+ = 0.3459, p < 0.001; CPT- = 0.1912, p = 0.0002; asymmetry p = 0.0999.
+- CPI Fuel and Light bridge: CPT+ = 0.1777, p = 0.0021; CPT- = 0.1058, p = 0.1741; asymmetry p = 0.4554.
+- Headline CPI: CPT+ = 0.0213, p = 0.1220; CPT- = 0.0006, p = 0.9375; asymmetry p = 0.2408.
+- Attenuation test: equality of retail-petrol and headline-CPI positive pass-through is rejected, F = 14.3499, p = 0.0002.
 
-Treat these as the source of truth:
+End the introduction with a short roadmap. Keep it simple. Do not write a long paragraph that previews every subsection.
 
-- `wpi/outputs/tables/table_01_data_spans.csv`
-- `wpi/outputs/tables/table_02_chain_factors.csv`
-- `wpi/outputs/tables/table_03_splice_checks.csv`
-- `wpi/outputs/tables/table_04_headline_main_model.csv`
-- `wpi/outputs/tables/table_06_fuel_power_model.csv`
-- `improved-v2/outputs/tables/table_24_publication_decision.csv`
-- `improved-v2/outputs/tables/table_22_ppac_retail_fuel.csv`
-- `improved-v2/outputs/tables/table_23_dilution_hypothesis.csv`
-- `improved-v2/outputs/tables/table_27_ppac_to_fuel_bridge.csv`
-- `improved-v2/outputs/tables/table_28_mandatory_model_gate.csv`
+Suggested table or figure placement:
 
-Use raw data only to describe sources:
+- No table is necessary in Chapter 1.
+- If the introduction feels abstract, include one small conceptual figure showing the layered chain. If used, place it after the research question. Label it Figure 1.1.
 
-- `data/raw/wpi/`
-- `data/raw/ppac_rsp_pre2017.xls`
-- `data/raw/ppac_rsp_post2017.xlsx`
-- `data/raw/POILBREUSDM.csv`
-- `data/raw/EXINUS.csv`
-- `data/raw/INDCPIALLMINMEI.csv`
-- `data/processed/`
+## Chapter 2: background and literature
 
-### 3.2 Main Variables
+Target: about 850 words.
 
-Define variables clearly:
+This chapter should explain why the layered approach makes sense for India.
 
-- Brent crude oil price in USD per barrel.
-- INR/USD exchange rate.
-- Rupee oil price, constructed as Brent multiplied by INR/USD.
-- Headline WPI chained to 2011-12 = 100.
-- WPI Fuel and Power chained to 2011-12 = 100.
-- PPAC Delhi retail petrol price.
-- Headline CPI.
-- CPI Fuel and Light, used only as a bridge series because the harmonised sample begins in 2011.
-- IIP or activity control where already used in the `improved-v2` models.
+### 2.1 India's oil-price setting
 
-All main model variables should be used in month-on-month log differences. Write this as:
+Explain three facts.
 
-`Delta ln(Y_t) = ln(Y_t) - ln(Y_{t-1})`
+First, India imports most of its crude oil. Brent price movements therefore matter for domestic costs. Second, the rupee price of oil matters more for domestic inflation than Brent alone because crude is priced in dollars. Third, fuel pricing policy affects how quickly international prices reach consumers.
 
-If the final paper uses percentages, be consistent. Do not mix decimal log changes and percent log changes without saying so.
+Discuss petrol deregulation in June 2010 and diesel deregulation in October 2014. Use careful wording. The pre/post-2010 split is useful institutional evidence, but it is not a clean experiment. Other changes also happened after 2010, including CPI rebasing, inflation targeting, GST, changes in fuel taxes, and large global shocks.
 
-### 3.3 Data Table
+Correct wording:
 
-Include one main data table in Chapter 3. Use the content from `paper/tbl_data.tex` or rebuild it from the CSV outputs. The table should have four columns:
+> The post-2010 wholesale estimates are consistent with stronger pass-through under more market-linked fuel pricing. They should not be read as a clean causal estimate of deregulation.
 
-1. Series
-2. Source
-3. Transformation
-4. Active sample
+### 2.2 Why WPI and CPI can differ
 
-Keep the table narrow enough for A4 portrait. Use 9-10 pt font if needed. Do not let long source names overflow. Wrap text inside cells.
+Make this distinction clear. WPI is closer to producer and wholesale cost pressure. CPI measures household prices and includes food, services, housing, education, health, and other non-fuel items. A fuel shock can be visible in WPI Fuel and Power and still look small in headline CPI because the CPI basket is broader.
 
-Suggested table placement:
+This is the main economic reason why the results are not contradictory. Strong pass-through in retail petrol and WPI Fuel and Power can coexist with weak headline CPI pass-through.
 
-`Table 3.1: Series, sources, transformations, and sample spans`
+### 2.3 Literature
 
-Use this note under the table:
+Keep the literature focused. Do not list every oil-price paper. Use papers that help explain the economics or justify the method.
 
-> Notes: Wholesale series are chained to a common 2011-12 = 100 base using official linking factors. Active samples are reported after inner joins on common dates. CPI Fuel and Light is treated as supporting bridge evidence because the harmonised series begins in 2011.
+Use Mandal et al. (2012) for Indian oil-price pass-through and domestic fuel adjustments. Use Bhanumurthy et al. (2012) for oil shocks, inflation, and policy trade-offs in India. Use Pradeep (2022) for reform-related pass-through and asymmetry in disaggregated Indian prices. Use Newey and West (1987) for HAC inference. Use Bai and Perron (2003) for structural breaks. Use Kwiatkowski et al. (1992) for stationarity testing.
 
-## Chapter 4: Empirical Methodology
+Suggested table or figure placement:
 
-This chapter should be 1,000-1,200 words. Keep it technical but readable. Do not bury the reader in equations.
+- Do not use a table unless the chapter becomes too dense.
+- If a literature table is required by the supervisor, keep it short: author, data, method, finding, how this dissertation differs. Put it at the end of Chapter 2 as Table 2.1.
 
-### 4.1 Main ADL Specification
+## Chapter 3: data and variables
 
-The main model is a short-run asymmetric ADL in log differences. Use positive and negative oil-change components:
+Target: about 850 words.
 
-`Delta x_t^+ = max(Delta x_t, 0)`
+Use only the active folders:
 
-`Delta x_t^- = min(Delta x_t, 0)`
+- `models/data`
+- `models/wpi`
+- `models/cpi`
 
-The general model is:
+Do not use old root-level folders or stale outputs.
 
-`Delta y_t = alpha + own lags of Delta y_t + lags of Delta x_t^+ + lags of Delta x_t^- + controls + month fixed effects + error`
+### 3.1 Data sources
 
-For WPI, use twelve own lags and oil lags 0-6. For CPI and PPAC mechanism models, follow the lag structure already used in `improved-v2`; do not invent new lag lengths unless rerunning the models.
+Describe each source in prose, then use Table 3.1. The data sources are official WPI series from the Office of the Economic Adviser, Brent prices from the World Bank Pink Sheet, INR/USD exchange rates, PPAC Delhi retail petrol prices, MoSPI CPI series, and IIP/activity controls.
 
-Define cumulative pass-through:
+Place Table 3.1 immediately after the source discussion.
 
-`CPT+ = sum of coefficients on positive oil-change lags`
+Table 3.1 should include:
 
-`CPT- = sum of coefficients on negative oil-change lags`
+| Series                   | Source                        | Transformation         | Active sample      |
+| ------------------------ | ----------------------------- | ---------------------- | ------------------ |
+| Brent crude price        | World Bank Pink Sheet         | Monthly log difference | Matched to layer   |
+| INR/USD exchange rate    | FRED or source used in data   | Monthly log difference | Matched to layer   |
+| Rupee oil price          | Brent multiplied by INR/USD   | Monthly log difference | Matched to layer   |
+| Headline WPI             | OEA, chained to 2011-12 = 100 | Monthly log difference | 1983-05 to 2026-03 |
+| WPI Fuel and Power       | OEA, chained to 2011-12 = 100 | Monthly log difference | 1995-05 to 2026-03 |
+| PPAC Delhi retail petrol | PPAC                          | Monthly log difference | 2004-08 to 2024-12 |
+| CPI Fuel and Light       | MoSPI                         | Monthly log difference | 2011-05 to 2024-12 |
+| Headline CPI             | MoSPI or processed CPI source | Monthly log difference | 2004-08 to 2024-12 |
 
-Explain interpretation plainly:
+### 3.2 Variable construction
 
-> A CPT+ of 0.030 means that a 1 percent positive rupee-oil shock is associated with about a 0.03 percent cumulative increase in the dependent price index over the model's lag window, holding the model's controls fixed.
+Explain the rupee oil price clearly:
+
+`oil_INR = Brent_USD * INR_per_USD`
+
+Then define log differences:
+
+`Delta x_t = 100 * [ln(x_t) - ln(x_{t-1})]`
+
+All main coefficients are approximately percentage responses. If CPT+ is 0.030, a 1 percent positive oil shock is associated with about a 0.03 percent cumulative change in the dependent price index over the lag window.
+
+Explain the positive and negative shock split:
+
+`Delta x_t+ = max(Delta x_t, 0)`
+
+`Delta x_t- = min(Delta x_t, 0)`
+
+Be careful with CPT-. It is the sum of coefficients on the negative-shock regressor. The negative-shock variable is non-positive by construction. Do not describe CPT- as if it were a separate positive oil shock.
+
+Suggested figure placement:
+
+- Place Figure 3.1 after the WPI chaining paragraph: `models/wpi/outputs/figures/fig_01_wpi_chained_series.png`.
+- Place Figure 3.2 after the rupee oil construction paragraph: `models/wpi/outputs/figures/fig_03_oil_decomposition.png`.
+
+## Chapter 4: methodology
+
+Target: about 850 words.
+
+This chapter should be clear and not too technical. The reader should understand what the ADL model does and why it fits the question.
+
+### 4.1 Model specification
+
+Use the short-run asymmetric ADL model in log differences:
+
+`Delta y_t = alpha + own lags of Delta y_t + lags of Delta x_t+ + lags of Delta x_t- + controls + month fixed effects + error_t`
+
+Explain the model in words before showing the equation. Say that the dependent variable is monthly inflation in the relevant price index, and the shock variable changes by layer.
+
+Use Table 4.1 after the model equation.
+
+Table 4.1 should include:
+
+| Layer              | Dependent variable            | Shock variable    | Role                     |
+| ------------------ | ----------------------------- | ----------------- | ------------------------ |
+| Headline WPI       | Headline WPI inflation        | Rupee oil shock   | Main WPI result          |
+| WPI Fuel and Power | WPI Fuel and Power inflation  | Rupee oil shock   | Wholesale fuel mechanism |
+| PPAC retail petrol | Delhi retail petrol inflation | Brent shock       | Retail fuel mechanism    |
+| CPI Fuel and Light | CPI Fuel and Light inflation  | PPAC petrol shock | Consumer fuel bridge     |
+| Headline CPI       | Headline CPI inflation        | Rupee oil shock   | Consumer endpoint        |
+
+This table is important because it prevents a logical mistake. It shows that the layers are related, but not all estimated with the same dependent variable or shock variable.
 
 ### 4.2 Inference
 
-Use Newey-West HAC standard errors for coefficient and cumulative restriction tests. State that the paper tests:
+Define cumulative pass-through:
 
-- whether CPT+ differs from zero,
-- whether CPT- differs from zero,
-- whether CPT+ equals CPT-.
+`CPT+ = sum of positive-shock lag coefficients`
 
-Use bootstrap symmetry tests where the outputs report them:
+`CPT- = sum of negative-shock lag coefficients`
 
-- Headline WPI bootstrap p = 0.746
-- WPI Fuel and Power bootstrap p = 0.820
-- Headline CPI bootstrap p = 0.500
+Report three tests:
 
-Do not claim asymmetry when the p-value does not support it.
+- H0: CPT+ = 0.
+- H0: CPT- = 0.
+- H0: CPT+ = CPT-.
 
-### 4.3 NARDL as Supplementary Evidence
+Use Newey-West HAC standard errors for the main inference. Use bootstrap symmetry checks as a robustness check. Do not make the bootstrap sound like a separate model.
 
-The NARDL material should not drive the paper. Put it in an appendix or short robustness subsection. The paper may say:
+### 4.3 Diagnostics and model roles
 
-> The NARDL results provide long-run supplementary evidence, but the main conclusions are based on differenced ADL specifications because they are easier to interpret, less dependent on the level-series integration assumptions, and directly aligned with month-on-month inflation dynamics.
+State the model roles clearly.
 
-Use `wpi/outputs/tables/table_07_nardl_summary.csv` and `paper/tbl_nardl.tex` only if including the appendix.
+- Headline WPI is accepted as the main WPI result.
+- WPI Brent plus exchange rate is a decomposition robustness check.
+- WPI Fuel and Power is a strong mechanism result, but report it with a functional-form caveat because HAC-RESET fails.
+- Headline CPI M1 is accepted as the main CPI endpoint.
+- PPAC retail petrol is accepted as the mandatory first-stage mechanism model.
+- CPI Fuel and Light is supporting bridge evidence because the sample is shorter than 20 years.
+- CPI M2 and M3 are not claim-bearing models because diagnostics reject them for main-text use.
 
-## Chapter 5: Results
+## Chapter 5: results
 
-This chapter is the core of the paper and should be about 1,900-2,300 words. It should not become a dump of every CSV. The reader should finish Chapter 5 understanding the layered attenuation result.
+Target: about 1,800 words.
 
-### 5.1 Long-Horizon Headline WPI Results
+This chapter should carry the dissertation. Organise it by layers, not by file names.
 
-Use:
+### 5.1 Headline WPI
 
-- `wpi/outputs/tables/table_04_headline_main_model.csv`
-- `wpi/outputs/tables/table_05_headline_brent_exr_model.csv`
-- `wpi/outputs/tables/table_09_diagnostics.csv`
-- `wpi/outputs/tables/table_17_bootstrap_wald.csv`
+Report the result first, then interpret it.
 
-Main result:
+Verified result:
 
-- Sample: 1983-05 to 2026-03
-- N = 515
-- Span: 42.92 years
-- Adjusted R2 = 0.421
-- CPT+ = 0.030, p = 0.024
-- CPT- = 0.037, p = 0.001
-- Asymmetry p = 0.673
-- Bootstrap symmetry p = 0.746
-
-Interpretation:
-
-> Headline WPI responds significantly to rupee oil shocks, but the effect is small. The positive and negative cumulative effects are similar, so the headline WPI model does not support short-run asymmetry.
-
-Do not say "oil strongly drives WPI headline inflation." Say "statistically visible but modest."
-
-### 5.2 Fuel and Power WPI
-
-Use:
-
-- `wpi/outputs/tables/table_06_fuel_power_model.csv`
-- `wpi/outputs/tables/table_09_diagnostics.csv`
-- `wpi/outputs/tables/table_17_bootstrap_wald.csv`
-
-Main result:
-
-- Sample: 1995-05 to 2026-03
-- N = 371
-- Span: 30.92 years
-- Adjusted R2 = 0.463
-- CPT+ = 0.287, p < 0.001
-- CPT- = 0.268, p < 0.001
-- Asymmetry p = 0.783
-- Bootstrap symmetry p = 0.820
+- Sample: 1983-05 to 2026-03.
+- N = 515.
+- Span = 42.92 years.
+- Adjusted R2 = 0.421.
+- CPT+ = 0.0301, p = 0.0240.
+- CPT- = 0.0374, p = 0.0012.
+- Asymmetry p = 0.6727.
+- Bootstrap symmetry p = 0.7461.
+- Diagnostics: BG, HAC-RESET, and Rec-CUSUM pass.
 
 Interpretation:
 
-> The fuel-sensitive wholesale layer carries a much larger oil signal than headline WPI. This is expected because the dependent variable is closer to the fuel channel. However, the model fails the HAC RESET test, so the exact coefficient should be reported with a functional-form caveat.
+> Headline WPI shows statistically significant but modest pass-through from rupee oil shocks. Positive and negative cumulative effects are close, so the model does not support short-run asymmetry in headline WPI.
 
-### 5.3 Retail Petrol Mechanism
+Place Table 5.1 here if combining headline WPI and WPI Fuel and Power results in one table.
 
-Use:
+### 5.2 WPI Fuel and Power
 
-- `improved-v2/outputs/tables/table_22_ppac_retail_fuel.csv`
-- `improved-v2/outputs/tables/table_26_channel_diagnostics.csv`
-- `improved-v2/outputs/tables/table_28_mandatory_model_gate.csv`
+Verified result:
 
-Main result:
-
-- Sample: 2004-08 to 2024-12
-- N = 245
-- Span: 20.42 years
-- CPT+ = 0.346, p < 0.001
-- CPT- = 0.191, p = 0.0002
-- Asymmetry p = 0.0999
-- Diagnostics accepted for main text
+- Sample: 1995-05 to 2026-03.
+- N = 371.
+- Span = 30.92 years.
+- Adjusted R2 = 0.463.
+- CPT+ = 0.2866, p < 0.001.
+- CPT- = 0.2677, p < 0.001.
+- Asymmetry p = 0.7832.
+- Bootstrap symmetry p = 0.8196.
+- Diagnostics: BG and Rec-CUSUM pass; HAC-RESET fails.
 
 Interpretation:
 
-> The retail petrol layer shows the largest direct pass-through. The asymmetry is only marginal at the 10 percent level, so it can be discussed as suggestive rockets-and-feathers behaviour, not as a strong 5 percent result.
+> WPI Fuel and Power carries a much stronger oil signal than headline WPI. This fits the economics because the dependent variable is closer to the fuel channel. The size is large, but report the exact magnitude with a functional-form caveat.
 
-### 5.4 CPI Fuel and Light Bridge
+Place Figure 5.1 after sections 5.1 and 5.2: `models/wpi/outputs/figures/fig_04_cumulative_passthrough.png`.
 
-Use:
+### 5.3 Retail petrol
 
-- `improved-v2/outputs/tables/table_27_ppac_to_fuel_bridge.csv`
-- `improved-v2/outputs/tables/table_23_dilution_hypothesis.csv`
-- `improved-v2/outputs/tables/table_23b_dilution_common_sample.csv`
+Verified result:
 
-Main result:
-
-- Sample: 2011-05 to 2024-12
-- N = 164
-- Span: 13.67 years
-- CPT+ = 0.178, p = 0.0021
-- CPT- = 0.106, p = 0.174
-- Asymmetry p = 0.455
+- Sample: 2004-08 to 2024-12.
+- N = 245.
+- Span = 20.42 years.
+- CPT+ = 0.3459, p < 0.001.
+- CPT- = 0.1912, p = 0.0002.
+- Asymmetry p = 0.0999.
+- Mandatory gate: PASS.
 
 Interpretation:
 
-> CPI Fuel and Light confirms that retail fuel movements enter fuel-sensitive consumer prices. Because the sample starts in 2011, this is bridge evidence, not a headline mandate.
+> Retail petrol is the strongest direct fuel layer. The asymmetry result is only marginal at the 10 percent level, so describe it as suggestive rather than decisive.
 
-### 5.5 Headline CPI Endpoint
+### 5.4 CPI Fuel and Light bridge
 
-Use:
+Verified result:
 
-- `improved-v2/outputs/tables/table_10_model_comparison.csv`
-- `improved-v2/outputs/tables/table_14_bootstrap_wald.csv`
-- `improved-v2/outputs/tables/table_24_publication_decision.csv`
-- `paper/tbl_cpi.tex`
-
-Main result:
-
-- Sample: 2004-08 to 2024-12
-- N = 245
-- Span: 20.42 years
-- Adjusted R2 = 0.449
-- CPT+ = 0.021, p = 0.122
-- CPT- = 0.001, p = 0.938
-- Asymmetry p = 0.241
-- Bootstrap symmetry p = 0.500
+- Sample: 2011-05 to 2024-12.
+- N = 164.
+- Span = 13.67 years.
+- CPT+ = 0.1777, p = 0.0021.
+- CPT- = 0.1058, p = 0.1741.
+- Asymmetry p = 0.4554.
 
 Interpretation:
 
-> Headline CPI is the endpoint where the oil signal becomes weak. The positive coefficient has the expected sign but is not statistically significant at 5 percent. The paper may say the result is suggestive of limited positive pass-through, but it must not claim a strong headline CPI effect.
+> CPI Fuel and Light shows that retail fuel movements enter a fuel-sensitive consumer layer. Because the sample starts in 2011, use it as bridge evidence rather than as a mandatory headline model.
 
-### 5.6 Integrated Attenuation Result
+Place Table 5.2 after sections 5.3 and 5.4. It should combine PPAC retail petrol and CPI Fuel and Light bridge results.
 
-This should be the main synthesis. Use:
+### 5.5 Headline CPI
 
-- `improved-v2/outputs/tables/table_23_dilution_hypothesis.csv`
-- `improved-v2/outputs/tables/table_23c_attenuation_wald.csv`
-- `paper/tbl_summary.tex`
+Verified result:
 
-Report the ranking:
-
-- PPAC retail petrol CPT+ = 0.346
-- WPI Fuel and Power CPT+ = 0.287
-- CPI Fuel and Light bridge CPT+ = 0.178
-- Headline WPI CPT+ = 0.030
-- Headline CPI CPT+ = 0.021, not significant
-
-Interpretation:
-
-> The empirical story is not that oil shocks disappear. They are strong in the fuel channel and then diluted in the headline aggregates. This is the central result of the paper.
-
-### 5.7 Pre/Post-2010 Wholesale Split
-
-Use:
-
-- `wpi/outputs/tables/table_12_subsample_prepost2010.csv`
-
-Report:
-
-- Headline WPI pre-2010 CPT+ = 0.012, p = 0.381
-- Headline WPI post-2010 CPT+ = 0.074, p = 0.004
-- Fuel and Power pre-2010 CPT+ = 0.092, p = 0.168
-- Fuel and Power post-2010 CPT+ = 0.524, p < 0.001
+- Sample: 2004-08 to 2024-12.
+- N = 245.
+- Span = 20.42 years.
+- Adjusted R2 = 0.4492.
+- CPT+ = 0.0213, p = 0.1220.
+- CPT- = 0.0006, p = 0.9375.
+- Asymmetry p = 0.2408.
+- Bootstrap symmetry p = 0.4997.
+- Mandatory gate: PASS.
 
 Interpretation:
 
-> The post-2010 estimates are materially larger and consistent with the institutional move toward more market-linked fuel pricing. This is not a full causal identification of deregulation because other changes also occurred in this period.
+> Headline CPI is where the oil signal becomes weak. The positive coefficient has the expected sign, but it is not statistically significant at conventional levels. This supports the attenuation argument. It does not mean oil is irrelevant for consumers.
 
-## Chapter 6: Robustness, Diagnostics, and Limitations
+Place Table 5.3 here. It can be a short table with the headline CPI cumulative result, diagnostics status, and bootstrap result.
 
-This chapter should be 800-1,000 words. It should show that the author understands the model's weak points.
+### 5.6 Integrated attenuation result
 
-Include these robustness points:
+This is the most important section of the dissertation. It should not read like a list of numbers. Explain what the ordering means.
 
-- Brent plus exchange-rate decomposition gives a similar headline WPI conclusion: CPT+ = 0.031, CPT- = 0.037, asymmetry p = 0.704.
-- Bootstrap symmetry tests do not support short-run asymmetry in headline WPI, Fuel and Power WPI, or headline CPI.
-- Granger tests support predictive precedence from oil to WPI and Fuel and Power, but Granger evidence is not structural causality.
-- COVID-window exclusion and winsorisation do not overturn the main CPI conclusions.
-- The NARDL appendix detects long-run asymmetry in some specifications, but this should be treated as supplementary because it depends on level-series assumptions and lag selection.
+Main ranking by CPT+:
 
-Limitations to state clearly:
+- PPAC retail petrol: 0.3459.
+- WPI Fuel and Power: 0.2866.
+- CPI Fuel and Light: 0.1777.
+- Headline WPI: 0.0301.
+- Headline CPI: 0.0213, not statistically significant.
+
+Common-sample CPI chain:
+
+- Stage 1, Brent to PPAC petrol: CPT+ = 0.4007, p = 0.0001.
+- Stage 2, PPAC petrol to CPI Fuel and Light: CPT+ = 0.1777, p = 0.0021.
+- Stage 3, oil to headline CPI: CPT+ = 0.0064, p = 0.6355.
+
+Formal attenuation test:
+
+- H0: CPT+ Stage 1 = CPT+ Stage 3.
+- F = 14.3499, p = 0.0002.
+- Verdict: reject equality. Attenuation is present.
+
+Place Table 5.4 immediately before the interpretation paragraph. This should be the integrated attenuation table.
+
+Place Figure 5.2 immediately after Table 5.4: `models/cpi/outputs/figures/fig_13_dilution_chain.png`.
+
+If space permits, place Figure 5.3 after the common-sample paragraph: `models/cpi/outputs/figures/fig_13b_dilution_common_sample.png`.
+
+Write the interpretation like this:
+
+> The layered pattern is clear. Oil-price shocks are strong in retail fuel and fuel-sensitive wholesale prices. They are still visible in CPI Fuel and Light. They are much smaller in the broad headline indices, especially headline CPI. This is attenuation, not absence.
+
+### 5.7 Pre/post-2010 wholesale split
+
+Verified result:
+
+- Headline WPI pre-2010 CPT+ = 0.0117, p = 0.3812.
+- Headline WPI post-2010 CPT+ = 0.0741, p = 0.0043.
+- WPI Fuel and Power pre-2010 CPT+ = 0.0922, p = 0.1679.
+- WPI Fuel and Power post-2010 CPT+ = 0.5241, p < 0.001.
+
+Interpretation:
+
+> The post-2010 wholesale estimates are larger, especially for Fuel and Power. This is consistent with more market-linked pricing, but it is not a clean causal estimate of deregulation.
+
+Place Table 5.5 here only if space permits. If the paper is too long, move the table to an appendix and keep one paragraph in the main text.
+
+Place Figure 5.4 only if space permits: `models/wpi/outputs/figures/fig_05_subsample_comparison.png`.
+
+## Chapter 6: robustness and limitations
+
+Target: about 700 words.
+
+Keep this chapter tight. It should reassure the reader, not repeat the whole results chapter.
+
+Report these checks:
+
+- WPI Brent plus exchange-rate decomposition gives a similar headline WPI result: CPT+ = 0.0309, p = 0.0234; CPT- = 0.0375, p < 0.001; asymmetry p = 0.7039.
+- WPI bootstrap symmetry tests do not reject symmetry for headline WPI or WPI Fuel and Power.
+- CPI bootstrap symmetry does not reject symmetry for headline CPI M1.
+- CPI M2 and M3 are not claim-bearing models because diagnostics reject them for main-text use.
+- Granger tests support predictive precedence from oil to WPI and from Brent to retail petrol, but they are not structural causality tests.
+- CPI robustness checks do not overturn the weak headline CPI conclusion.
+
+Use one compact diagnostics table if needed. Place it near the beginning of Chapter 6 as Table 6.1. Do not include every coefficient table in the main text.
+
+Limitations to state plainly:
 
 - The models are reduced-form projections, not structural causal estimates.
-- The post-2010 split is suggestive, not a clean policy experiment.
-- CPI Fuel and Light is shorter than ideal.
-- WPI Fuel and Power has a functional-form diagnostic caveat.
-- Headline CPI results should be written as weak or suggestive, not decisive.
+- The pre/post-2010 split is institutional evidence, not a clean policy experiment.
+- CPI Fuel and Light has a shorter sample than headline CPI and WPI.
+- WPI Fuel and Power has a functional-form caveat.
+- Headline CPI pass-through should be described as weak and statistically insignificant, not zero.
+- The layered table is an attenuation map, not a structural decomposition of one identical shock across all equations.
 
 ## Conclusion
 
-The conclusion should be 700-900 words. It should not introduce new tables, new models, or new references. It should return to the research question and answer it directly.
+Target: about 550 words.
 
-The conclusion should make these points in order:
+Answer the research question directly. Do not add new results.
 
-1. Oil pass-through in India is layered.
-2. The shock is clear in retail fuel and fuel-sensitive price indices.
-3. It is visible but small in headline WPI.
-4. It weakens sharply before reaching headline CPI.
-5. Short-run asymmetry is not the main finding.
-6. The post-2010 evidence is consistent with stronger pass-through under more market-linked fuel pricing, but it is not a clean causal estimate.
-7. Policy interpretation: WPI is useful for upstream cost pressure, CPI is necessary for household inflation, and neither should be treated as a substitute for the other.
+Conclusion structure:
+
+1. Oil-price pass-through in India is layered.
+2. Retail petrol and WPI Fuel and Power show strong pass-through.
+3. CPI Fuel and Light provides bridge evidence that fuel movements enter a consumer fuel layer.
+4. Headline WPI shows statistically significant but modest pass-through.
+5. Headline CPI shows weak and statistically insignificant pass-through.
+6. Short-run asymmetry is not the main result.
+7. The post-2010 wholesale split is consistent with stronger pass-through under more market-linked pricing, but it is not clean causal evidence.
+8. The policy lesson is that WPI, retail fuel prices, and CPI reveal different parts of the same inflation process.
 
 Good closing sentence:
 
-> The main lesson is that the question is not whether WPI or CPI is the correct index for oil shocks. The better question is where the oil shock survives inside the price system and where it is absorbed.
+> The main lesson is simple: oil shocks do not vanish in India, but they lose force as they move from fuel prices to headline consumer inflation.
 
-Avoid a dramatic ending. Do not write "future research should explore endless possibilities." If adding future work, keep it to two realistic extensions: more disaggregated CPI components and time-varying pass-through models.
+## Main tables and figures
 
-## Figures to Include
+Use tables and figures inside the chapter where they are discussed. Do not place all tables at the end. Do not include more tables than the argument needs.
 
-Use figures from `wpi` and `improved-v2` only. Place each figure close to the paragraph where it is interpreted. If the AI cannot embed the original plot, it must insert a clear placeholder in the text, for example:
+Recommended main tables:
 
-`[PLACEHOLDER: Insert wpi/outputs/figures/fig_01_wpi_chained_series.png here. Caption: Chained headline WPI and Fuel and Power series, rebased to 2011-12 = 100.]`
+| Label     | Placement                       | Content                                          | Source output                                                                                 |
+| --------- | ------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| Table 3.1 | Chapter 3, after data sources   | Variables, sources, transformations, samples     | Data description and model outputs                                                            |
+| Table 4.1 | Chapter 4, after model equation | Model roles by layer                             | Author's summary                                                                              |
+| Table 5.1 | Chapter 5.1 to 5.2              | Headline WPI and WPI Fuel and Power results      | `models/wpi/outputs/tables/table_04_headline_main_model.csv`, `table_06_fuel_power_model.csv` |
+| Table 5.2 | Chapter 5.3 to 5.4              | PPAC retail petrol and CPI Fuel and Light bridge | `models/cpi/outputs/tables/table_22_ppac_retail_fuel.csv`, `table_27_ppac_to_fuel_bridge.csv` |
+| Table 5.3 | Chapter 5.5                     | Headline CPI endpoint result                     | `models/cpi/outputs/tables/table_06_M1_asym_inr.csv`                                          |
+| Table 5.4 | Chapter 5.6                     | Integrated attenuation table                     | `models/cpi/outputs/tables/table_23_dilution_hypothesis.csv`, WPI result tables               |
+| Table 5.5 | Chapter 5.7, if space permits   | Pre/post-2010 wholesale split                    | `models/wpi/outputs/tables/table_12_subsample_prepost2010.csv`                                |
+| Table 6.1 | Chapter 6, if space permits     | Diagnostics and robustness summary               | WPI and CPI diagnostics tables                                                                |
 
-Main-body figures:
+Recommended figures:
 
-1. `wpi/outputs/figures/fig_01_wpi_chained_series.png`  
-   Use in Chapter 3 after the data table. It shows the chained WPI construction and splice points.
+| Label      | Placement                         | Figure path                                                     | Purpose                                                 |
+| ---------- | --------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------- |
+| Figure 3.1 | Chapter 3, WPI construction       | `models/wpi/outputs/figures/fig_01_wpi_chained_series.png`      | Show chained WPI series.                                |
+| Figure 3.2 | Chapter 3, oil shock construction | `models/wpi/outputs/figures/fig_03_oil_decomposition.png`       | Show Brent and exchange-rate contribution to rupee oil. |
+| Figure 5.1 | Chapter 5, after WPI results      | `models/wpi/outputs/figures/fig_04_cumulative_passthrough.png`  | Show WPI cumulative pass-through.                       |
+| Figure 5.2 | Chapter 5, attenuation section    | `models/cpi/outputs/figures/fig_13_dilution_chain.png`          | Main synthesis figure.                                  |
+| Figure 5.3 | Chapter 5, if space permits       | `models/cpi/outputs/figures/fig_13b_dilution_common_sample.png` | Common-sample attenuation check.                        |
+| Figure 5.4 | Chapter 5, if space permits       | `models/wpi/outputs/figures/fig_05_subsample_comparison.png`    | Pre/post-2010 wholesale comparison.                     |
 
-2. `wpi/outputs/figures/fig_03_oil_decomposition.png`  
-   Use in Chapter 3 or Chapter 4. It shows Brent and INR/USD contributions to rupee oil prices.
+Every table should have a short note. The note should define CPT+, CPT-, sample period, and whether p-values use Newey-West HAC inference. Every figure should have a caption that says what the reader should notice.
 
-3. `wpi/outputs/figures/fig_04_cumulative_passthrough.png`  
-   Use in Chapter 5.1. It shows the cumulative WPI pass-through profile.
+## Writing style rules
 
-4. `wpi/outputs/figures/fig_05_subsample_comparison.png`  
-   Use in Chapter 5.7. It shows pre/post-2010 differences.
-
-5. `improved-v2/outputs/figures/fig_13_dilution_chain.png`  
-   Use in Chapter 5.6. This is the most important synthesis figure.
-
-6. `improved-v2/outputs/figures/fig_10_asymmetry_gap.png`  
-   Use only if space permits. It supports the claim that asymmetry is not the strongest pattern across layers.
-
-Appendix-only or optional figures:
-
-- `wpi/outputs/figures/fig_11_bootstrap_distribution.png`
-- `wpi/outputs/figures/fig_06_cusum_stability.png`
-- `wpi/outputs/figures/fig_07_residual_diagnostics.png`
-- `improved-v2/outputs/figures/fig_12_bootstrap_distribution.png`
-- `improved-v2/outputs/figures/fig_13b_dilution_common_sample.png`
-
-Do not include too many diagnostic figures in the main paper. They interrupt the argument.
-
-## Tables to Include
-
-Use no more than six main tables. If the final paper becomes too long, reduce to four.
-
-Main tables:
-
-1. Data and variable definitions: use `paper/tbl_data.tex` or rebuild from source CSVs.
-2. Headline WPI ADL results: use `paper/tbl_wpi.tex`.
-3. Mechanism layer results: combine PPAC petrol and WPI Fuel and Power using `paper/tbl_mech.tex`.
-4. Headline CPI endpoint: use `paper/tbl_cpi.tex`.
-5. Integrated attenuation summary: use `paper/tbl_summary.tex`.
-6. Pre/post-2010 split: use `wpi/outputs/tables/table_12_subsample_prepost2010.csv`, either as its own table or merged into the attenuation summary.
-
-Appendix table:
-
-- NARDL bounds battery: use `paper/tbl_nardl.tex`.
-
-Table formatting rules:
-
-- Use clear captions above tables.
-- Use notes below tables.
-- Use 9-10 pt table font if needed.
-- Use wrapped columns for long text.
-- Do not use screenshots of tables.
-- Use `booktabs` style if writing LaTeX.
-- In Word, use fixed column widths and repeat header rows if a table splits across pages.
-- If a table does not fit portrait A4, either shorten labels or move it to appendix. Do not let text overlap.
-
-Figure formatting rules:
-
-- Use the original PNG files, not low-resolution screenshots.
-- Keep figures within page margins.
-- Captions should be concise and interpretive.
-- Do not repeat the full regression result in the caption.
-- Check that axis labels, legends, and captions do not overlap after export to PDF.
-- If the plot is too dense, place it in appendix rather than resizing it until unreadable.
-
-## Writing Rules
-
-The writing should sound like a careful student who understands the work. It should not sound like a promotional abstract, a policy brochure, or generic AI prose.
+Write like a careful economics student, not like a press release.
 
 Use:
 
-- "suggests"
-- "is consistent with"
-- "provides evidence of"
-- "statistically visible but small"
+- "the results suggest"
+- "the estimates are consistent with"
+- "statistically significant but modest"
+- "weak and not statistically significant"
 - "reported with a caveat"
-- "not statistically distinguishable from zero"
+- "reduced-form evidence"
 
 Avoid:
 
 - "proves"
-- "confirms beyond doubt"
-- "crucial"
-- "pivotal"
-- "delves into"
-- "underscores"
-- "showcases"
-- "complex tapestry"
-- "not only... but also"
-- "in today's ever-changing economy"
+- "clearly demonstrates" unless the test directly supports it
+- inflated importance language
+- vague claims about significance
+- slogan-like contrasts
+- decorative verbs when a simple verb works better
+- em dashes
 
-Do not use forced three-part lists in every paragraph. Vary sentence length. Use direct sentences when the result is simple. It is acceptable to write "This is a small number" or "The result should be treated carefully" where that is the honest interpretation.
+Use simple transitions. For example:
 
-Academic integrity rule: write original, source-grounded prose. Do not fabricate citations, p-values, coefficients, sample dates, or robustness checks. Do not try to evade detection systems. The right way to make the paper human is to make it specific, restrained, and defensible.
+- "The next layer is retail petrol."
+- "The CPI result is weaker."
+- "This is where the attenuation claim comes from."
+- "The evidence is suggestive, not causal."
 
-## Word Budget
+Do not hide uncertainty. The dissertation is stronger when the caveats are honest.
 
-Keep the final paper below 8,000 words.
+## APA citation rules
 
-Suggested allocation:
+Use APA 7 style consistently.
 
-- Abstract: 180-250
-- Introduction: 900-1,100
-- Institutional background and literature: 1,100-1,300
-- Data and variables: 900-1,100
-- Methodology: 1,000-1,200
-- Results: 1,900-2,300
-- Robustness and limitations: 800-1,000
-- Conclusion: 700-900
-- References: only sufficient and relevant sources
+In-text examples:
 
-## Word and Dissertation Formatting
+- Narrative citation with two authors: Newey and West (1987) propose HAC standard errors.
+- Parenthetical citation with two authors: (Newey & West, 1987).
+- Three or more authors: Mandal et al. (2012) examine oil-price pass-through in India.
+- Parenthetical citation with three or more authors: (Mandal et al., 2012).
+- Government source in narrative form: The Office of the Economic Adviser (2017) explains the WPI base revision.
+- Government source in parenthetical form: (Office of the Economic Adviser, 2017).
 
-Follow the university formatting requirements when converting this blueprint into the final document:
+Reference list rules:
 
-- A4 page size.
-- Mirror margins: 1 inch top, bottom, and outside; 3.54 cm inside.
-- Portrait orientation.
-- Times New Roman, 12 pt body text.
-- 1.5 line spacing.
-- Justified body text.
-- Chapter titles in Heading 1.
-- Main sections in Heading 2.
-- Subsections in Heading 3.
-- Subheadings bold.
-- Start each chapter on a new page using a page break.
-- Use Word captions for figures and tables so the user can generate lists later.
-- Do not manually type the table of contents, list of figures, or list of tables in this file.
+- Arrange references alphabetically by first author or institutional author.
+- Use sentence case for article and report titles.
+- Use title case for journal names.
+- Italicise journal names and volume numbers.
+- Include issue number in parentheses when available.
+- Include page range and DOI when available.
+- Do not cite a paper in the reference list unless it appears in the text.
 
 ## References
 
-Bai, J., & Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics, 18*(1), 1-22. https://doi.org/10.1002/jae.659
+Bai, J., & Perron, P. (2003). Computation and analysis of multiple structural change models. _Journal of Applied Econometrics, 18_(1), 1-22. https://doi.org/10.1002/jae.659
 
-Bhanumurthy, N. R., Das, S., & Bose, S. (2012). *Oil price shock, pass-through policy and its impact on India* (NIPFP Working Paper No. 2012-99). National Institute of Public Finance and Policy.
+Bhanumurthy, N. R., Das, S., & Bose, S. (2012). _Oil price shock, pass-through policy and its impact on India_ (NIPFP Working Paper No. 2012-99). National Institute of Public Finance and Policy.
 
-Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., & Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. *Journal of Econometrics, 54*(1-3), 159-178. https://doi.org/10.1016/0304-4076(92)90104-Y
+Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., & Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. _Journal of Econometrics, 54_(1-3), 159-178. https://doi.org/10.1016/0304-4076(92)90104-Y
 
-Mandal, K., Bhattacharyya, I., & Bhoi, B. B. (2012). Is the oil price pass-through in India any different? *Journal of Policy Modeling, 34*(6), 832-848. https://doi.org/10.1016/j.jpolmod.2012.06.001
+Mandal, K., Bhattacharyya, I., & Bhoi, B. B. (2012). Is the oil price pass-through in India any different? _Journal of Policy Modeling, 34_(6), 832-848. https://doi.org/10.1016/j.jpolmod.2012.06.001
 
-Ministry of Statistics and Programme Implementation. (2015). *Consumer Price Index: Changes in the revised series*. Government of India.
+Ministry of Statistics and Programme Implementation. (2015). _Consumer Price Index: Changes in the revised series_. Government of India.
 
-Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica, 55*(3), 703-708. https://doi.org/10.2307/1913610
+Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. _Econometrica, 55_(3), 703-708. https://doi.org/10.2307/1913610
 
-Office of the Economic Adviser. (2017). *Manual on Wholesale Price Index: Base 2011-12 = 100*. Department for Promotion of Industry and Internal Trade, Ministry of Commerce and Industry, Government of India.
+Office of the Economic Adviser. (2017). _Manual on Wholesale Price Index: Base 2011-12 = 100_. Department for Promotion of Industry and Internal Trade, Ministry of Commerce and Industry, Government of India.
 
-Pal, D., & Mitra, S. K. (2016). Asymmetric oil product pricing in India: Evidence from a multiple threshold nonlinear ARDL model. *Economic Modelling, 59*, 314-328. https://doi.org/10.1016/j.econmod.2016.08.003
+Petroleum Planning and Analysis Cell. (2024). _Ready reckoner: India's oil and gas_. Ministry of Petroleum and Natural Gas, Government of India.
 
-Pesaran, M. H., Shin, Y., & Smith, R. J. (2001). Bounds testing approaches to the analysis of level relationships. *Journal of Applied Econometrics, 16*(3), 289-326. https://doi.org/10.1002/jae.616
+Pradeep, S. (2022). Impact of diesel price reforms on asymmetricity of oil price pass-through to inflation: Indian perspective. _The Journal of Economic Asymmetries, 26_, e00249. https://doi.org/10.1016/j.jeca.2022.e00249
 
-Petroleum Planning and Analysis Cell. (2024). *Ready reckoner: India's oil and gas*. Ministry of Petroleum and Natural Gas, Government of India.
-
-Pradeep, S. (2022). Impact of diesel price reforms on asymmetricity of oil price pass-through to inflation: Indian perspective. *The Journal of Economic Asymmetries, 26*, e00249. https://doi.org/10.1016/j.jeca.2022.e00249
-
-Shin, Y., Yu, B., & Greenwood-Nimmo, M. (2014). Modelling asymmetric cointegration and dynamic multipliers in a nonlinear ARDL framework. In R. C. Sickles & W. C. Horrace (Eds.), *Festschrift in honor of Peter Schmidt: Econometric methods and applications* (pp. 281-314). Springer. https://doi.org/10.1007/978-1-4899-8008-3_9
-
-World Bank. (2026). *Commodity price data: The Pink Sheet*. World Bank Commodity Markets.
+World Bank. (2026). _Commodity price data: The Pink Sheet_. World Bank Commodity Markets.
