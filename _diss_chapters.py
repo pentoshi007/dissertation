@@ -33,7 +33,7 @@ def write_abstract(c):
         "This dissertation studies how global oil-price shocks pass through India's domestic price system. "
         "India imports most of its crude oil, and crude is priced in dollars, so movements in Brent and the "
         "INR/USD exchange rate form the external cost shock. Rather than estimating one "
-        "oil-to-headline-CPI elasticity, the dissertation follows the shock across layers: headline "
+        "oil-to-headline-CPI elasticity, the dissertation follows the shock across several layers: headline "
         "WPI, WPI Fuel and Power, PPAC Delhi retail petrol, CPI Fuel and Light, and headline CPI. The models "
         "use monthly data and short-run asymmetric ADL specifications in log differences. Inference relies on "
         "Newey-West HAC standard errors, cumulative pass-through tests, bootstrap symmetry checks, and "
@@ -89,6 +89,11 @@ def write_chapter1(c):
         "does this pass-through weaken? The framing is not limited to whether oil affects CPI or whether "
         "pass-through is asymmetric. Those questions remain important, but the primary framing is transmission "
         "and attenuation across layers."
+    )
+    c['add_para'](
+        "The contribution is the combined map. The dissertation puts wholesale prices, retail petrol, "
+        "fuel-sensitive consumer prices, and headline CPI in one India-specific frame, while keeping the "
+        "differences in samples and shock variables visible."
     )
     c['add_para'](
         "The dissertation treats oil pass-through as a layered transmission problem rather than as a single "
@@ -577,6 +582,11 @@ def write_chapter5(c):
         "is rejected, with F = 14.3499 and p = 0.0002. The verdict is that attenuation is "
         "present along the common-sample chain."
     )
+    c['add_para'](
+        "Table 5.4 should be read as a map, not as one mechanical equation. The rows use different dependent "
+        "variables, shock variables, and active samples. The common-sample rows narrow the CPI-chain "
+        "comparison, but the safest interpretation remains an attenuation map across related layers."
+    )
 
     c['add_table'](
         headers=["Layer", "N", "CPT+ (p)", "CPT- (p)", "Asym. p"],
@@ -591,7 +601,7 @@ def write_chapter5(c):
             ["Common sample, Stage 3 (oil to headline CPI)", "168", "0.0064 (0.6355)", "−0.0001 (0.9923)", "0.7340"],
             ["Attenuation Wald: H0 Stage 1 CPT+ = Stage 3 CPT+", "n/a", "F = 14.3499", "p = 0.0002", "Reject"],
         ],
-        caption="Table 5.4: Integrated attenuation across the layered chain",
+        caption="Table 5.4: Integrated attenuation map across the layered chain",
         col_widths=[2.45, 0.55, 1.20, 1.10, 0.50],
         font_size=9,
     )
@@ -689,6 +699,14 @@ def write_chapter6(c):
         "Table 5.4. Rolling-window estimates of the headline CPI cumulative pass-through hover around the "
         "central estimate without crossing into a significant range at conventional levels."
     )
+    c['add_para'](
+        "The model-upgrade audit supports staying with the conservative headline specifications. In the CPI "
+        "results, the Brent plus exchange-rate decomposition with q = 3 gives a somewhat larger positive "
+        "coefficient, but its diagnostics fail; the AIC-favoured q = 0 version is safer but carries no "
+        "meaningful oil signal. In the WPI results, the Brent plus exchange-rate decomposition confirms the "
+        "headline WPI result, while WPI Fuel and Power remains a mechanism estimate that needs the "
+        "functional-form caveat."
+    )
 
     c['add_table'](
         headers=["Layer", "BG12", "RESET-HAC", "Rec-CUSUM", "Bootstrap symmetry p"],
@@ -730,7 +748,8 @@ def write_conclusion(c):
         "The dissertation set out to ask where oil-price pass-through weakens inside the Indian price system. "
         "The answer is that pass-through is layered, not flat. The shock is strongest at the points of the "
         "price system closest to direct fuel-price exposure, and it becomes weaker as the analysis moves "
-        "toward broader household-facing aggregates."
+        "toward broader household-facing aggregates. This answer is a reduced-form attenuation map, not a "
+        "structural claim that one identical shock travels through five mechanically linked equations."
     )
     c['add_para'](
         "The empirical map can be read in five steps. Retail petrol and WPI Fuel and Power show strong "
@@ -738,7 +757,7 @@ def write_conclusion(c):
         "Light provides bridge evidence that fuel movements enter a fuel-sensitive consumer layer at a "
         "cumulative coefficient of 0.1777 for positive shocks. Headline WPI shows statistically significant "
         "but modest pass-through at 0.0301. Headline CPI shows weak and statistically insignificant "
-        "pass-through at 0.0213. Across all layers, short-run asymmetry is not the main finding. Where it is "
+        "pass-through at 0.0213 in the estimated post-2004 specification. Across all layers, short-run asymmetry is not the main finding. Where it is "
         "most plausibly located, in the retail petrol layer, the evidence is only marginal at the 10 percent "
         "level."
     )
@@ -752,7 +771,7 @@ def write_conclusion(c):
     )
     c['add_para'](
         "The policy interpretation is restrained. WPI is useful for tracking upstream cost pressure and is "
-        "the index where oil shocks remain most clearly visible at the headline level, even after dilution. "
+        "the index where oil shocks remain most visible at the headline level, even after dilution. "
         "CPI is the household-facing index and the inflation-targeting anchor, and it is the index where the "
         "oil signal is weakest at the headline level. Neither index should be treated as a substitute for the "
         "other when the question is about oil shocks. A monetary policy framework that uses CPI as its anchor "
@@ -890,6 +909,14 @@ def write_chapter2(c):
         "(1987) provide the HAC covariance estimator used for inference in the ADL models. Bai and Perron "
         "(2003) provide the multiple-break test used in the structural-break diagnostics. Kwiatkowski et al. "
         "(1992) provide the stationarity test used in the unit root battery."
+    )
+    c['add_para'](
+        "This dissertation fits that literature but uses a different frame. The results agree with Mandal "
+        "et al. on pricing-regime dependence, with Bhanumurthy et al. on policy-mediated transmission, and "
+        "with Pradeep's emphasis that reform can change both magnitude and asymmetry. Instead of leading with "
+        "one aggregate inflation estimate, the dissertation asks how the same broad oil-price problem looks "
+        "as the empirical object moves from wholesale and retail fuel prices to fuel-sensitive consumer prices "
+        "and then to headline CPI."
     )
     c['add_para'](
         "The asymmetric split between positive and negative oil changes follows the applied pass-through "

@@ -1,6 +1,6 @@
 """Build aniket-dissertation.docx strictly following blueprint.md.
 
-ADL-only, layered attenuation story, plain MS Economics student prose, no em
+ADL-only, layered attenuation map, plain MS Economics student prose, no em
 dashes, APA 7 references, tables and figures inside chapters. Target ~7,000
 words.
 """
@@ -230,8 +230,32 @@ def add_table(headers, rows, caption=None, col_widths=None, font_size=10):
                     tcPr.append(tcW)
                 tcW.set(qn('w:w'), str(dxa_widths[ci]))
                 tcW.set(qn('w:type'), 'dxa')
+    def set_cell_margins(cell, top=80, start=100, bottom=80, end=100):
+        tcPr = cell._tc.get_or_add_tcPr()
+        tcMar = tcPr.find(qn('w:tcMar'))
+        if tcMar is None:
+            tcMar = OxmlElement('w:tcMar')
+            tcPr.append(tcMar)
+        for m, v in (('top', top), ('start', start), ('bottom', bottom), ('end', end)):
+            node = tcMar.find(qn(f'w:{m}'))
+            if node is None:
+                node = OxmlElement(f'w:{m}')
+                tcMar.append(node)
+            node.set(qn('w:w'), str(v))
+            node.set(qn('w:type'), 'dxa')
+
+    def set_cell_valign(cell):
+        tcPr = cell._tc.get_or_add_tcPr()
+        v_align = tcPr.find(qn('w:vAlign'))
+        if v_align is None:
+            v_align = OxmlElement('w:vAlign')
+            tcPr.append(v_align)
+        v_align.set(qn('w:val'), 'center')
+
     hdr = t.rows[0].cells
     for i, h in enumerate(headers):
+        set_cell_margins(hdr[i])
+        set_cell_valign(hdr[i])
         hdr[i].text = ''
         para = hdr[i].paragraphs[0]
         run = para.add_run(h)
@@ -243,6 +267,8 @@ def add_table(headers, rows, caption=None, col_widths=None, font_size=10):
     for ri, row in enumerate(rows, start=1):
         cells = t.rows[ri].cells
         for ci, val in enumerate(row):
+            set_cell_margins(cells[ci])
+            set_cell_valign(cells[ci])
             cells[ci].text = ''
             para = cells[ci].paragraphs[0]
             run = para.add_run(str(val))
@@ -257,10 +283,13 @@ def add_table(headers, rows, caption=None, col_widths=None, font_size=10):
 
 def add_note(text):
     p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.LEFT
     r = p.add_run("Notes: " + text)
     r.italic = True
     r.font.size = Pt(10)
     r.font.name = 'Times New Roman'
+    p.paragraph_format.line_spacing = 1.0
+    p.paragraph_format.space_before = Pt(2)
     p.paragraph_format.space_after = Pt(10)
 
 
