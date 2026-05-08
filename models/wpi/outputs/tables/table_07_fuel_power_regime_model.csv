@@ -1,0 +1,2 @@
+"Specification","Sample_start","Sample_end","N","Span_years","Adj_R2","CPT_pos_pre2010","CPT_neg_pre2010","CPT_pos_post2010","CPT_neg_post2010","Regime_diff_F","Regime_diff_p"
+"Fuel & Power WPI ADL (regime): INR oil +/- × post-2010 interactions","1995-05-01","2026-03-01",371,30.92,0.5563,0.100016,0.251413,0.458076,0.391338,8.0631,0

@@ -153,7 +153,8 @@ prepare_short_run_data <- function(chained_df, dep_label) {
       dln_brent_pos = pmax(dln_brent, 0),
       dln_brent_neg = pmin(dln_brent, 0),
       d_reform = as.integer(date >= as.Date("2014-10-01")),
-      d_covid = as.integer(date >= as.Date("2020-04-01") & date <= as.Date("2020-09-01"))
+      d_covid = as.integer(date >= as.Date("2020-04-01") & date <= as.Date("2020-09-01")),
+      d_post2010 = as.integer(date >= as.Date("2010-04-01"))
     ) %>%
     {df <- .
       for (k in 1:MAIN_AR_LAGS) df[[paste0("dln_dep_L", k)]] <- dplyr::lag(df$dln_dep, k)
@@ -164,6 +165,16 @@ prepare_short_run_data <- function(chained_df, dep_label) {
         df[[paste0("dln_brent_neg_L", k)]] <- dplyr::lag(df$dln_brent_neg, k)
       }
       df$dln_exr_L1 <- dplyr::lag(df$dln_exr, 1)
+      # Regime interaction: oil shocks × post-2010 dummy (for regime-dependent model)
+      for (k in 0:MAIN_OIL_LAGS) {
+        df[[paste0("dln_oil_pos_post_L", k)]] <- df$d_post2010 * df[[paste0("dln_oil_pos_L", k)]]
+        df[[paste0("dln_oil_neg_post_L", k)]] <- df$d_post2010 * df[[paste0("dln_oil_neg_L", k)]]
+      }
+      # Exchange rate × post-2010 (deregulation strengthened EXR channel)
+      df$dln_exr_post <- df$d_post2010 * df$dln_exr
+      df$dln_exr_L1_post <- df$d_post2010 * df$dln_exr_L1
+      # Squared oil shock (captures curvature / diminishing marginal pass-through)
+      df$dln_oil_sq <- df$dln_oil^2
       df
     }
 }

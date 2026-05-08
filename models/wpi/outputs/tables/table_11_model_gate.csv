@@ -1,3 +1,5 @@
 "Model","Span_years","Over_20_years","BG12_pass","RESET_HAC_pass","RecCUSUM_pass","Verdict"
 "Headline WPI ADL (INR oil)",42.92,"YES","PASS","PASS","PASS","PASS"
-"Fuel & Power WPI ADL",30.92,"YES","PASS","FAIL","PASS","CAUTION"
+"Fuel & Power WPI ADL (pooled)",30.92,"YES","PASS","FAIL","PASS","CAUTION"
+"Fuel & Power WPI ADL (regime)",30.92,"YES","PASS","FAIL","PASS","CAUTION"
+"Fuel & Power WPI ADL (post-2010 excl. COVID)",16,"YES","PASS","PASS","PASS","PASS"

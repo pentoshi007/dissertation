@@ -6,7 +6,9 @@ banner("04", "DIAGNOSTICS")
 diag_short_run <- bind_rows(
   run_diagnostics(m_headline_main, f_headline_main, df_headline_main, "Headline WPI ADL (INR oil)"),
   run_diagnostics(m_headline_brent, f_headline_brent, df_headline_brent, "Headline WPI ADL (Brent + EXR)"),
-  run_diagnostics(m_fuel_main, f_fuel_main, df_fuel_main, "Fuel & Power WPI ADL")
+  run_diagnostics(m_fuel_main, f_fuel_main, df_fuel_main, "Fuel & Power WPI ADL (pooled)"),
+  run_diagnostics(m_fuel_regime, f_fuel_regime, df_fuel_regime, "Fuel & Power WPI ADL (regime)"),
+  run_diagnostics(m_fuel_post2010, f_fuel_post2010, df_fuel_post2010, "Fuel & Power WPI ADL (post-2010 excl. COVID)")
 )
 
 save_table(diag_short_run, "table_09_diagnostics.csv")

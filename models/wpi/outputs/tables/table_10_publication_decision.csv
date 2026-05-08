@@ -1,4 +1,6 @@
 "Model","Role","Sample","Span_years","Key_result","Diagnostics","Verdict"
 "Headline WPI ADL (INR oil)","Main WPI result","1983-05-01 to 2026-03-01",42.92,"CPT+=0.0301 (p=0.0240); CPT-=0.0374 (p=0.0012); asym p=0.6727","BG=PASS; HAC-RESET=PASS; Rec-CUSUM=PASS","Use as main result"
 "Headline WPI ADL (Brent + EXR)","Robustness / decomposition","1983-05-01 to 2026-03-01",42.92,"CPT+=0.0309 (p=0.0234); CPT-=0.0375 (p=<0.001); asym p=0.7039","BG=PASS; HAC-RESET=PASS; Rec-CUSUM=PASS","Use as decomposition robustness"
-"Fuel & Power WPI ADL","Sector mechanism result","1995-05-01 to 2026-03-01",30.92,"CPT+=0.2866 (p=<0.001); CPT-=0.2677 (p=<0.001); asym p=0.7832","BG=PASS; HAC-RESET=FAIL; Rec-CUSUM=PASS","Report with functional-form caveat"
+"Fuel & Power WPI ADL (pooled)","Sector mechanism (original pooled)","1995-05-01 to 2026-03-01",30.92,"CPT+=0.2866 (p=<0.001); CPT-=0.2677 (p=<0.001); asym p=0.7832","BG=PASS; HAC-RESET=FAIL; Rec-CUSUM=PASS","Superseded by post-2010 model; report with caveat"
+"Fuel & Power WPI ADL (regime)","Sector mechanism (regime-dependent)","1995-05-01 to 2026-03-01",30.92,"Pre-2010: CPT+=0.1000 CPT-=0.2514 | Post-2010: CPT+=0.4581 CPT-=0.3913 | Regime-diff p=<0.001","BG=PASS; HAC-RESET=FAIL; Rec-CUSUM=PASS","Report with functional-form caveat"
+"Fuel & Power WPI ADL (post-2010 excl. COVID)","Sector mechanism (preferred, post-deregulation)","2010-04-01 to 2026-03-01",16,"CPT+=0.5205 (p=<0.001); CPT-=0.4195 (p=<0.001); asym p=0.1642","BG=PASS; HAC-RESET=PASS; Rec-CUSUM=PASS","Use as preferred sector mechanism result"
