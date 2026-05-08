@@ -1,0 +1,9 @@
+"Variable","Form","ADF_stat","ADF_cv5","KPSS_stat","KPSS_cv5","ADF_stationary_5pct","KPSS_stationary_5pct"
+"ln(WPI Fuel & Power)","Level",-2.07,-3.42,1.0734,NA,"NO",NA
+"ln(Rupee Brent oil)","Level",-3.0192,-3.42,0.963,NA,"NO",NA
+"ln(Brent USD)","Level",-2.7362,-3.42,0.998,NA,"NO",NA
+"ln(INR/USD)","Level",-2.1825,-3.42,0.647,NA,"NO",NA
+"dln(WPI Fuel & Power)","First Diff",-12.0471,-2.87,0.1944,NA,"YES",NA
+"dln(Rupee Brent oil)","First Diff",-12.9406,-2.87,0.0497,NA,"YES",NA
+"dln(Brent USD)","First Diff",-12.709,-2.87,0.0551,NA,"YES",NA
+"dln(INR/USD)","First Diff",-12.8686,-2.87,0.0751,NA,"YES",NA

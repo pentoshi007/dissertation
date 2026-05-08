@@ -1,0 +1,3 @@
+"Model","N","Sample_start","Sample_end","BG12_p","BG12_status","BP_p","RESET_HAC_p","RESET_HAC_status","RecCUSUM_p","RecCUSUM_status","OLS_CUSUM_p","OLS_CUSUM_status","Serial_control"
+"Simple all-sample LP, horizon 0",371,1995-05-01,2026-03-01,0.7279,"PASS",0.228,0.0097,"BENCHMARK_REJECTED",0.4293,"PASS",0.9488,"PASS","Newey-West HAC used in all LP estimates"
+"State-dependent post-2010 LP, horizon 0",371,1995-05-01,2026-03-01,3e-04,"CONTROLLED_BY_HAC",0.1223,0.3592,"PASS",0.6459,"PASS",0.8869,"PASS","Newey-West HAC used in all LP estimates"

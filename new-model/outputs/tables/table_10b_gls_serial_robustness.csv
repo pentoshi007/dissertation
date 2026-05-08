@@ -1,0 +1,2 @@
+"Model","N","Sample_start","Sample_end","Error_model","Ljung_Box_lag12_p","Ljung_Box_status","AIC","Main_interaction_estimate","Main_interaction_p","Use_in_paper"
+"State-dependent post-2010 LP, horizon 0",371,1995-05-01,2026-03-01,"GLS with AR(1) residual correlation",0.9974,"PASS",1442.9057,0.111739,0,"Serial-correlation robustness only; OLS local projections with HAC remain main estimates"

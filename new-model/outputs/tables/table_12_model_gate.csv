@@ -1,0 +1,2 @@
+"Model","Main_sample_start","Main_sample_end","Main_span_years","Main_horizon","Core_result","Diagnostics","Publication_decision"
+"State-dependent local projections: rupee Brent oil -> WPI Fuel & Power","1995-05-01","2026-03-01",30.92,"0 to 12 months","All-sample h=6 response=0.296251 (p=<0.001); h=12 response=0.346082 (p=<0.001)","Serial=CONTROLLED_BY_HAC; GLS_AR1_LB=PASS; RESET=PASS; RecCUSUM=PASS","Use as fresh fallback model with cautious state-dependent interpretation"

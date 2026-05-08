@@ -1,0 +1,3 @@
+"Series","Linking_factor","Conversion_rule","Source_note"
+"Fuel & Power WPI 1993-94 -> 2004-05",2.802,"Convert older-base index to 2011-12 by dividing through the factor chain","Official OEA WPI base-linking factor used in the existing dissertation data pipeline"
+"Fuel & Power WPI 2004-05 -> 2011-12",1.69,"Convert older-base index to 2011-12 by dividing through the factor chain","Official OEA WPI base-linking factor used in the existing dissertation data pipeline"
