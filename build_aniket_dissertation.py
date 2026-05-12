@@ -2,7 +2,8 @@
 
 ADL-only, layered attenuation map, plain MS Economics student prose, no em
 dashes, APA 7 references, tables and figures inside chapters. Target ~7,000
-words.
+words. Uses the current model hierarchy where WPI Fuel and Power is reported
+from the preferred post-2010 excluding-COVID specification.
 """
 
 from docx import Document

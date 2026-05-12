@@ -334,7 +334,7 @@ if (length(dilution_results) > 0) {
   print(dilution_tbl[, c("Stage", "CPT_pos", "CPT_neg", "Asym_p", "Asym_evidence")])
 
   cat("\n  Interpretation:\n")
-  cat("  CPT+ and |CPT-| should decline from Stage 1 to Stage 3\n")
+  cat("  CPT+ and CPT- should decline from Stage 1 to Stage 3\n")
   cat("  as energy shocks get absorbed by the food and services CPI components.\n")
 
   if ("S1" %in% names(dilution_results) && "S3" %in% names(dilution_results)) {

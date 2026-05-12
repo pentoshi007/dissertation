@@ -96,7 +96,7 @@ cat("  Fig 04: Cumulative pass-through...\n")
 tryCatch({
   cpt_data <- data.frame(
     Model = rep(c("M0: Symmetric", "M1: INR Oil\n(Headline)", "M2: Brent+EXR\n(Robustness)"), each = 2),
-    Type  = rep(c("CPT+", "|CPT-|"), 3),
+    Type  = rep(c("CPT+", "CPT\u2212"), 3),
     Value = c(cpt_sym, NA,
               cpt_m1$cpt_pos, abs(cpt_m1$cpt_neg),
               cpt_m2$cpt_pos, abs(cpt_m2$cpt_neg))
@@ -107,7 +107,7 @@ tryCatch({
     geom_col(position = position_dodge(width = 0.7), width = 0.6, alpha = 0.85) +
     geom_text(aes(label = sprintf("%.4f", Value)),
               position = position_dodge(width = 0.7), vjust = -0.5, size = 3.2) +
-    scale_fill_manual(values = c("CPT+" = "#C0392B", "|CPT-|" = "#2980B9")) +
+    scale_fill_manual(values = c("CPT+" = "#C0392B", "CPT\u2212" = "#2980B9")) +
     labs(title = "Cumulative Pass-Through Coefficients",
          subtitle = "Sum of oil lag coefficients (L0 to L3)",
          x = NULL, y = "CPT", fill = NULL) +
@@ -246,7 +246,7 @@ tryCatch({
 }, error = function(e) cat(sprintf("  Fig 09 error: %s\n", e$message)))
 
 # ==============================================================================
-# Figure 10: Asymmetry gap (CPT+ - |CPT-|) across models
+# Figure 10: Asymmetry gap (CPT+ - CPT−) across models
 # ==============================================================================
 cat("  Fig 10: Asymmetry gap...\n")
 tryCatch({
@@ -264,9 +264,9 @@ tryCatch({
     geom_text(aes(label = label), vjust = -0.5, size = 3.5) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     scale_fill_manual(values = c("#1F3864", "#C0392B")) +
-    labs(title = "Asymmetry Gap: CPT+ minus |CPT-|",
+    labs(title = "Asymmetry Gap: CPT+ minus CPT\u2212",
          subtitle = "Positive gap = oil increases raise CPI more than decreases lower it",
-         x = NULL, y = "CPT+ - |CPT-|") +
+         x = NULL, y = "CPT+ \u2212 CPT\u2212") +
     theme_pub + theme(legend.position = "none")
   ggsave(save_figure_path("fig_10_asymmetry_gap.png"), fig10, width = 7, height = 5, dpi = 300)
 }, error = function(e) cat(sprintf("  Fig 10 error: %s\n", e$message)))
@@ -349,7 +349,7 @@ tryCatch({
       mutate(Stage_short = paste0("Stage ", seq_len(n()), "\n", stage_lbls)) %>%
       tidyr::pivot_longer(c(CPT_pos, CPT_neg), names_to = "Type", values_to = "Value") %>%
       mutate(
-        Type_label = ifelse(Type == "CPT_pos", "CPT+", "|CPT-|"),
+        Type_label = ifelse(Type == "CPT_pos", "CPT+", "CPT\u2212"),
         AbsValue = abs(Value),
         Stage_short = factor(Stage_short, levels = unique(Stage_short))
       )
@@ -359,7 +359,7 @@ tryCatch({
       geom_text(aes(label = sprintf("%.3f", Value)),
                 position = position_dodge(width = 0.75),
                 vjust = -0.4, size = 3.2) +
-      scale_fill_manual(values = c("CPT+" = "#C0392B", "|CPT-|" = "#2980B9")) +
+      scale_fill_manual(values = c("CPT+" = "#C0392B", "CPT\u2212" = "#2980B9")) +
       scale_y_log10(
         labels = scales::label_number(accuracy = 0.001),
         breaks = c(0.001, 0.01, 0.05, 0.1, 0.5),
@@ -367,7 +367,7 @@ tryCatch({
       ) +
       labs(title = "The Dilution Hypothesis: Oil-to-CPI Pass-Through Chain",
            subtitle = "CPT on a log10 scale so Stage 1 (retail fuel) and Stage 3 (headline) are jointly visible",
-           x = NULL, y = "|CPT| (log10 scale)", fill = NULL,
+           x = NULL, y = "CPT (log10 scale)", fill = NULL,
            caption = "Headline CPI captures only a fraction of retail-fuel pass-through (dilution)") +
       theme_pub
     ggsave(save_figure_path("fig_13_dilution_chain.png"),
@@ -387,7 +387,7 @@ tryCatch({
     cs_long <- cs %>%
       tidyr::pivot_longer(c(CPT_pos, CPT_neg), names_to = "Type", values_to = "Value") %>%
       mutate(
-        Type_label = ifelse(Type == "CPT_pos", "CPT+", "|CPT-|"),
+        Type_label = ifelse(Type == "CPT_pos", "CPT+", "CPT\u2212"),
         AbsValue = abs(Value) + 1e-6,
         Stage_num = factor(Stage_num, levels = unique(Stage_num))
       )
@@ -397,7 +397,7 @@ tryCatch({
       geom_text(aes(label = sprintf("%.3f", Value)),
                 position = position_dodge(width = 0.75),
                 vjust = -0.4, size = 3.2) +
-      scale_fill_manual(values = c("CPT+" = "#C0392B", "|CPT-|" = "#2980B9")) +
+      scale_fill_manual(values = c("CPT+" = "#C0392B", "CPT\u2212" = "#2980B9")) +
       scale_y_log10(
         labels = scales::label_number(accuracy = 0.001),
         breaks = c(0.001, 0.01, 0.05, 0.1, 0.5),
@@ -408,7 +408,7 @@ tryCatch({
                               cs$N[1],
                               if (nrow(cs) >= 2) cs$N[2] else NA_integer_,
                               if (nrow(cs) >= 3) cs$N[3] else NA_integer_),
-           x = NULL, y = "|CPT| (log10 scale)", fill = NULL,
+           x = NULL, y = "CPT (log10 scale)", fill = NULL,
            caption = "Stage 1: Brent -> PPAC | Stage 2: PPAC -> F&L | Stage 3: Oil -> Headline CPI") +
       theme_pub
     ggsave(save_figure_path("fig_13b_dilution_common_sample.png"),

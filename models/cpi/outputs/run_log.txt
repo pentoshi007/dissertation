@@ -1,5 +1,5 @@
-Run completed: 2026-05-06 23:48:54.602272
-Runtime: 80.4 seconds
+Run completed: 2026-05-09 00:56:38.978419
+Runtime: 49.6 seconds
 Tables: 35 | Figures: 14
 Mandatory gate:
            Model Mandatory   N Sample_start Sample_end Span_years Duration_20Y

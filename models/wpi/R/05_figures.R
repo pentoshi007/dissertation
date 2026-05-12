@@ -76,7 +76,7 @@ cat("  Fig 04: Cumulative pass-through...\n")
 tryCatch({
   cpt_data <- data.frame(
     Model = rep(c("M1: Headline\nINR Oil", "M2: Headline\nBrent+EXR", "M3: Fuel &\nPower"), each = 2),
-    Type  = rep(c("CPT+", "|CPT-|"), 3),
+    Type  = rep(c("CPT+", "CPT\u2212"), 3),
     Value = c(cpt_headline_main$cpt_pos, abs(cpt_headline_main$cpt_neg),
               cpt_headline_brent$cpt_pos, abs(cpt_headline_brent$cpt_neg),
               cpt_fuel_main$cpt_pos, abs(cpt_fuel_main$cpt_neg))
@@ -87,7 +87,7 @@ tryCatch({
     geom_col(position = position_dodge(width = 0.7), width = 0.6, alpha = 0.85) +
     geom_text(aes(label = sprintf("%.4f", Value)),
               position = position_dodge(width = 0.7), vjust = -0.5, size = 3.2) +
-    scale_fill_manual(values = c("CPT+" = "#C0392B", "|CPT-|" = "#2980B9")) +
+    scale_fill_manual(values = c("CPT+" = "#C0392B", "CPT\u2212" = "#2980B9")) +
     labs(title = "Cumulative Pass-Through Coefficients",
          subtitle = "Sum of oil lag coefficients (L0 to L6)",
          x = NULL, y = "CPT", fill = NULL) +
@@ -105,7 +105,7 @@ tryCatch({
       select(Model, Subsample, CPT_pos, CPT_neg) %>%
       tidyr::pivot_longer(cols = c(CPT_pos, CPT_neg), names_to = "Type", values_to = "Value") %>%
       mutate(
-        Type = ifelse(Type == "CPT_pos", "CPT+", "|CPT-|"),
+        Type = ifelse(Type == "CPT_pos", "CPT+", "CPT\u2212"),
         Value = abs(Value),
         Label = paste0(Model, "\n", Subsample)
       )
@@ -115,7 +115,7 @@ tryCatch({
       geom_col(position = position_dodge(width = 0.7), width = 0.6, alpha = 0.85) +
       geom_text(aes(label = sprintf("%.4f", Value)),
                 position = position_dodge(width = 0.7), vjust = -0.5, size = 2.8) +
-      scale_fill_manual(values = c("CPT+" = "#C0392B", "|CPT-|" = "#2980B9")) +
+      scale_fill_manual(values = c("CPT+" = "#C0392B", "CPT\u2212" = "#2980B9")) +
       labs(title = "Pre/Post Deregulation: Oil-to-WPI Pass-Through",
            subtitle = "Split at April 2010 (onset of petrol deregulation)",
            x = NULL, y = "CPT", fill = NULL) +
@@ -226,7 +226,7 @@ tryCatch({
 }, error = function(e) cat(sprintf("  Fig 08 error: %s\n", e$message)))
 
 # ==============================================================================
-# Figure 9: Asymmetry gap (CPT+ - |CPT-|) across models
+# Figure 9: Asymmetry gap (CPT+ - CPT−) across models
 # ==============================================================================
 cat("  Fig 09: Asymmetry gap...\n")
 tryCatch({
@@ -251,9 +251,9 @@ tryCatch({
     geom_text(aes(label = label), vjust = -0.5, size = 3.3) +
     geom_hline(yintercept = 0, linetype = "dashed") +
     scale_fill_manual(values = c("#0b5f7a", "#bf4d28", "#8E44AD")) +
-    labs(title = "Asymmetry Gap: CPT+ minus |CPT-|",
+    labs(title = "Asymmetry Gap: CPT+ minus CPT\u2212",
          subtitle = "Positive = oil increases raise WPI more than decreases lower it",
-         x = NULL, y = "CPT+ − |CPT−|") +
+         x = NULL, y = "CPT+ \u2212 CPT\u2212") +
     theme_pub + theme(legend.position = "none")
   ggsave(save_figure_path("fig_09_asymmetry_gap.png"), fig9, width = 8, height = 5.5, dpi = 300)
 }, error = function(e) cat(sprintf("  Fig 09 error: %s\n", e$message)))
