@@ -15,7 +15,7 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement, parse_xml
 
 ROOT = str(Path(__file__).resolve().parent)
-OUT = os.path.join(ROOT, "journal-paper.docx")
+OUT = os.path.join(ROOT, "Aniket-Pandey-MS-Journal.docx")
 
 doc = Document()
 
@@ -361,7 +361,9 @@ def mnary_sum(sub, sup, body):
 # TITLE BLOCK
 # ============================================================
 
-PAPER_TITLE = "Layered Oil-Price Pass-Through in India: Evidence from Wholesale, Retail Fuel, and Consumer Prices"
+PAPER_TITLE = ("FROM WHOLESALE PRICES TO CONSUMER "
+"INFLATION: LAYERED PASS-THROUGH OF"
+" GLOBAL OIL SHOCKS IN INDIA")
 
 tp = doc.add_paragraph()
 tp.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -376,25 +378,23 @@ tr.font.size = Pt(16)
 au = doc.add_paragraph()
 au.alignment = WD_ALIGN_PARAGRAPH.CENTER
 au.paragraph_format.first_line_indent = Inches(0)
-ar = au.add_run("Aniket Pandey")
-ar.font.name = 'Times New Roman'
-ar.font.size = Pt(11)
-
-sup_ = doc.add_paragraph()
-sup_.alignment = WD_ALIGN_PARAGRAPH.CENTER
-sup_.paragraph_format.first_line_indent = Inches(0)
-sr2 = sup_.add_run("Under the supervision of Prof. Shakti Kumar")
-sr2.italic = True
-sr2.font.name = 'Times New Roman'
-sr2.font.size = Pt(11)
-
-aff = doc.add_paragraph()
-aff.alignment = WD_ALIGN_PARAGRAPH.CENTER
-aff.paragraph_format.first_line_indent = Inches(0)
-aff.paragraph_format.space_after = Pt(12)
-afr = aff.add_run("Jawaharlal Nehru University, New Delhi")
-afr.font.name = 'Times New Roman'
-afr.font.size = Pt(11)
+au.paragraph_format.space_after = Pt(12)
+for name, mark, suffix in [
+    ("Aniket Pandey", "1", ", "),
+    ("Shakti Kumar", "2", ", "),
+    ("Utkarsh Srivastav", "3", ""),
+]:
+    name_run = au.add_run(name)
+    name_run.font.name = 'Times New Roman'
+    name_run.font.size = Pt(11)
+    mark_run = au.add_run(mark)
+    mark_run.font.name = 'Times New Roman'
+    mark_run.font.size = Pt(9)
+    mark_run.font.superscript = True
+    if suffix:
+        suffix_run = au.add_run(suffix)
+        suffix_run.font.name = 'Times New Roman'
+        suffix_run.font.size = Pt(11)
 
 # ABSTRACT
 ab_h = doc.add_paragraph()
@@ -474,66 +474,77 @@ add_para_math(
 )
 
 add_para_math(
-    "Most research on how oil price changes affect India has looked at a single equation "
+    "Much of the Indian evidence on how oil price changes affect prices has looked at equations "
     "linking oil to either WPI or CPI inflation (Mandal et al., 2012; Bhanumurthy et al., 2012; "
     "Pradeep, 2022). This gives one measure of price sensitivity, but it doesn't tell us where "
     "the effect gets weaker. This paper looks at oil price changes and how they are passed on "
     "as a problem of costs at different levels of the economy, instead of a single figure. We "
     "follow the impact from the price of oil in rupees, to wholesale prices, then from Brent "
     "crude to the retail petrol price in Delhi as calculated by the Petroleum Planning and "
-    "Analysis Cell (PPAC), from PPAC's retail petrol price to the CPI Fuel and Light category, "
-    "and finally from the price of oil in rupees to overall CPI. Each of these steps is "
+    "Analysis Cell (PPAC), from PPAC's retail petrol price as a proxy for retail fuel pressure "
+    "to the CPI Fuel and Light category, and finally from the price of oil in rupees to overall "
+    "CPI. Each of these steps is "
     "estimated using a 'short-run asymmetric autoregressive distributed lag' model with monthly "
     "changes in values expressed as logarithms."
 )
 
 add_para_math(
-    "The institutional background is also relevant. Domestic fuel prices were not always fully "
-    "linked to international prices, and reform episodes changed the way international oil "
-    "movements entered petrol and diesel prices. Pradeep (2022) studies this reform setting and "
-    "places asymmetry at the centre of the question. This paper uses that background more "
-    "narrowly. It does not claim that deregulation caused the post-2010 estimates. It treats the "
-    "reform period as context for reading stronger wholesale and retail fuel pass-through once "
-    "pricing became market-linked."
+    "How fuel is managed by the government is important to understanding this. For a long time, "
+    "what you pay for petrol and diesel at the pump didn't perfectly reflect what was happening "
+    "to oil prices globally, and the times the system was changed altered how international oil "
+    "price changes affected petrol and diesel prices. Pradeep (2022) studies these changes with "
+    "asymmetry as a central issue. This paper uses that policy history only in a limited way; it does not say "
+    "deregulation alone caused the post-2010 estimates. Instead, it looks at that "
+    "reform period as a setting for more accurately seeing how much of the wholesale and retail "
+    "fuel price changes with the world price, now that prices are set by the market."
 )
 
 add_para_math(
-    "The WPI versus CPI distinction is useful here because the two indices measure different "
-    "layers of the price system. WPI more closely tracks producer and wholesale cost pressure. "
-    "CPI is the consumer-facing aggregate used for inflation targeting, but it contains many "
-    "items whose monthly movements need not follow oil prices. A layered design is therefore "
-    "more cautious than a single headline CPI equation. If oil is strong in fuel layers but weak "
-    "in headline CPI, then attenuation is the right conclusion, not irrelevance."
+    "Looking at the Wholesale Price Index (WPI) and the Consumer Price Index (CPI) is helpful, "
+    "because they look at different parts of the price process. The WPI is more concerned with "
+    "costs for producers and at the wholesale level. CPI is the overall figure for what "
+    "consumers pay, and is what the government uses for keeping inflation in check; however, "
+    "many of the things it includes won't necessarily move up and down with oil prices. "
+    "Therefore, a 'layered' look at prices is more careful than just looking at the overall CPI. "
+    "If oil's effect on fuel prices is strong but on the overall CPI it's weak, then we are "
+    "seeing attenuation (a lessening of the effect), and oil isn't as unimportant as it might "
+    "seem."
 )
 
 add_para_math(
-    "For inference, Newey-West heteroskedasticity and autocorrelation consistent (HAC) standard "
-    "errors (Newey & West, 1987) are used, and the cumulative pass-through statistics CPT^{+} "
-    "and CPT^{-} summarise the response to positive and negative shock terms. Bootstrap "
-    "resampling gives a robustness check for asymmetry. Diagnostic tests include serial "
-    "correlation, functional form and recursive stability, and a model-gate rule distinguishes "
-    "main, caveated and excluded equations. "
-    "Bai and Perron (2003) structural-break logic and the unit-root test battery, including KPSS "
-    "checks (Kwiatkowski et al., 1992), are used to assess the differenced specification."
+    "To draw conclusions, Newey-West (HAC) standard errors are used to deal with "
+    "heteroskedasticity and autocorrelation (Newey & West, 1987), and CPT^{+} and CPT^{-}, "
+    "which are cumulative pass-through statistics, are used to summarise the response to oil "
+    "price increases and decreases. Bootstrap resampling is done as a robustness check on "
+    "whether prices respond differently to increases versus decreases. Serial correlation, the "
+    "correct mathematical form for the calculations, and whether the relationships hold over "
+    "time are all tested to check the work. And a 'model-gate' rule decides which equations are "
+    "the main ones, which have caveats, and which are left out. Bai and Perron's method (2003) "
+    "for finding structural breaks and a range of unit root tests, including the KPSS test "
+    "(Kwiatkowski et al., 1992), are used to evaluate the 'differenced specification'."
 )
 
 add_para_math(
-    "The estimates suggest layered attenuation. Retail petrol shows the strongest direct "
-    "consumer-side fuel response, with CPT^{+} = 0.3459 (p < 0.001). The preferred post-2010 WPI "
-    "Fuel and Power model gives CPT^{+} = 0.5205 (p < 0.001) and passes the diagnostic gate. "
-    "CPI Fuel and Light, the consumer fuel bridge, shows CPT^{+} = 0.1777 (p = 0.0021). "
-    "Headline WPI reports a statistically significant but modest CPT^{+} = 0.0301 (p = 0.0240). "
-    "Headline CPI shows CPT^{+} = 0.0213 with p = 0.1220, positive in sign but not "
-    "statistically significant at conventional levels. A formal Wald test rejects equality "
-    "between the retail petrol and headline CPI positive pass-through estimates at "
-    "F = 14.3499, p = 0.0002. Asymmetry is weak overall; only retail petrol shows a marginal "
-    "CPT^{+} = CPT^{-} rejection at the ten per cent level (p = 0.0999)."
+    "The results show the expected layered attenuation. Retail petrol gives the strongest "
+    "direct fuel-side response for consumers, with CPT^{+} = 0.3459 (p < 0.001). The preferred "
+    "post-2010 WPI Fuel and Power model comes in higher at CPT^{+} = 0.5205 (p < 0.001) and "
+    "clears the diagnostic gate without any complications. CPI Fuel and Light is used as "
+    "a bridge between retail fuel pressure and a fuel-sensitive consumer component, and drops to "
+    "CPT^{+} = 0.1777 (p = 0.0021). As the index gets broader, the response becomes weaker: "
+    "headline WPI reports a statistically significant but small CPT^{+} = 0.0301 (p = 0.0240), "
+    "and headline CPI comes in at CPT^{+} = 0.0213 with p = 0.1220, which is positive in sign "
+    "but not statistically significant at conventional levels. A formal Wald test, with "
+    "F = 14.3499, p = 0.0002, rejects equality between the retail petrol and headline CPI "
+    "positive pass-through estimates. Strong asymmetry is not supported; retail petrol is the "
+    "only layer showing marginal CPT^{+} = CPT^{-} rejection at the ten per cent level "
+    "(p = 0.0999)."
 )
 
-add_para("The remainder of the paper is arranged as follows. Section 2 describes the data and "
-         "variables. Section 3 details the methodology. Section 4 reports results across price "
-         "layers. Section 5 deals with robustness, diagnostics and limitations. Section 6 "
-         "discusses implications and concludes.")
+add_para("This paper is divided into six sections. Section 2 outlines the data and the "
+         "variables used. A detailed explanation of the method is in Section 3. The results "
+         "across price levels are in Section 4. Section 5 addresses the reliability of the "
+         "results, the tests conducted to audit the work and the limits of what can be said. "
+         "Section 6 discusses what the results mean and concludes.")
 
 # ============================================================
 # 2. DATA AND VARIABLES
@@ -560,8 +571,8 @@ add_para_math(
     "refiners. For the retail petrol model, the regressor is the Brent shock directly, because "
     "domestic retail fuel prices are administered with reference to international product prices "
     "and the rupee component is partially absorbed by tax and pricing rules. For the CPI Fuel and "
-    "Light bridge model, the regressor is the PPAC petrol shock, because that is the price the "
-    "fuel-sensitive consumer layer faces."
+    "Light bridge model, the regressor is the PPAC petrol shock, because it gives a practical "
+    "retail fuel measure for that bridge."
 )
 
 add_para_math(
@@ -689,8 +700,7 @@ add_para_math(
     "variables and most WPI differenced variables, while WPI inflation carries a KPSS "
     "break-related caveat handled through the Bai-Perron check. The framework is short-run by "
     "design. Since the interest is in monthly transmission rather than long-run equilibrium "
-    "adjustment, there are no NARDL bounds tests, no error-correction terms, and no long-run "
-    "pass-through claims."
+    "adjustment, the article makes no long-run pass-through claims."
 )
 
 # ============================================================
@@ -729,32 +739,37 @@ add_table(
 heading2("4.2 Wholesale layer")
 
 add_para_math(
-    "Headline WPI shows statistically significant but modest pass-through from rupee oil shocks. "
-    "The combined response to positive shocks is CPT^{+} = 0.0301, p = 0.0240, and the cumulative "
-    "response to negative shock terms is CPT^{-} = 0.0374, p = 0.0012. The asymmetry test does not "
-    "reject equality (p = 0.6727), so the wholesale endpoint does not support short-run asymmetry. "
-    "The adjusted R^{2} of 0.4207 over 515 observations suggests that lagged inflation, the oil "
-    "shock and seasonal structure account for a large share of monthly headline WPI variation. "
-    "The model passes the Breusch-Godfrey, HAC-RESET and recursive CUSUM checks, so it is treated "
-    "as claim-bearing."
+    "Headline WPI does respond to rupee oil shocks, though not extensively. The positive "
+    "shocks' response is CPT^{+} = 0.0301, p = 0.0240, and the negative shocks' response is "
+    "CPT^{-} = 0.0374, p = 0.0012. This indicates that there is a small but statistically "
+    "significant response. The asymmetry test cannot reject equality of the two at the 0.05 "
+    "level (p = 0.6727), meaning that at the wholesale endpoint there is no evidence of "
+    "short-run asymmetry. Over 515 observations, an adjusted R^{2} of 0.4207 indicates that "
+    "lagged inflation, the oil shock and the seasonal structure together explain a fair share "
+    "of the monthly variation in headline WPI. The model passes all the required tests "
+    "(Breusch-Godfrey, HAC-RESET and recursive CUSUM), so we retain it as a claim-bearing "
+    "model."
 )
 
 add_para_math(
-    "The preferred WPI Fuel and Power model has a stronger oil signal, with CPT^{+} = 0.5205 "
-    "(p < 0.001) and CPT^{-} = 0.4195 (p < 0.001) over 186 observations. Point estimates indicate "
-    "that the wholesale fuel layer responds strongly within the lag window. The asymmetry p-value "
-    "of 0.1642 does not reject equality of positive and negative cumulative effects. The model "
-    "clears the mandatory diagnostic gate: Breusch-Godfrey p = 0.0746, HAC-RESET p = 0.5443 and "
+    "The response becomes even more pronounced once we zoom into the fuel component. The "
+    "preferred WPI Fuel and Power model gives a stronger oil signal, with "
+    "CPT^{+} = 0.5205 (p < 0.001) and CPT^{-} = 0.4195 (p < 0.001) on 186 observations. "
+    "Asymmetry in response between positive and negative shocks is again difficult to "
+    "establish; the p-value of the asymmetry test is 0.1642, so symmetry is retained for the "
+    "positive and negative cumulative cases. The required diagnostics indicate that the model "
+    "clears the gate cleanly, with Breusch-Godfrey p = 0.0746, HAC-RESET p = 0.5443 and "
     "recursive CUSUM p = 0.6999."
 )
 
 add_para_math(
-    "The older full-sample pooled Fuel and Power model still provides useful context but no longer "
-    "carries the preferred inference. On 371 observations it returns CPT^{+} = 0.2866 and "
-    "CPT^{-} = 0.2677, but fails the HAC-RESET functional-form test. The failure is consistent with "
-    "mixing administered and market-linked pricing periods and with the unusual COVID pricing months. "
-    "Restricting the preferred model to the post-2010 period and excluding April to September 2020 "
-    "is thus an economic specification choice and not a cosmetic sample trim."
+    "The older full-sample pooled Fuel and Power model is still useful as background, but it is "
+    "no longer where we draw the preferred inference. On 371 observations it gives "
+    "CPT^{+} = 0.2866 and CPT^{-} = 0.2677, but it fails the HAC-RESET functional-form test. "
+    "That failure makes sense once you remember that the full sample mixes the administered and "
+    "market-linked pricing periods together and also includes the unusual COVID pricing months. "
+    "Restricting the preferred model to the post-2010 period and dropping April to September "
+    "2020 is therefore an economic choice about specification, not a cosmetic sample trim."
 )
 
 add_para_math(
@@ -784,8 +799,8 @@ add_para_math(
 )
 
 add_para_math(
-    "CPI Fuel and Light is the consumer fuel layer that sits between retail fuel prices and "
-    "broad consumer inflation. With the PPAC petrol shock as the regressor, CPT^{+} = 0.1777 "
+    "CPI Fuel and Light is used as a bridge between retail fuel pressure "
+    "and broad consumer inflation. With the PPAC petrol shock as the regressor, CPT^{+} = 0.1777 "
     "(p = 0.0021) and CPT^{-} = 0.1058 (p = 0.1741) over 164 observations. The positive "
     "pass-through is statistically significant; the negative side is not. The result is treated "
     "as bridge evidence rather than as a primary consumer-price result, because the sample only "
@@ -797,10 +812,11 @@ add_para_math(
 add_para_math(
     "The contrast between these two consumer-side layers is useful. Retail petrol is a narrow, "
     "policy-sensitive retail price and can move sharply when international prices are passed on. CPI "
-    "Fuel and Light is already a basket component. It includes household fuel items and therefore "
-    "smooths the retail petrol shock. The decline from 0.3459 in the retail petrol equation to "
-    "0.1777 in the bridge equation is consistent with partial transmission rather than a full "
-    "one-for-one movement. Because the bridge sample is short, the estimate is not used to make a "
+    "Fuel and Light is already a basket component. It reflects household fuel and lighting items "
+    "rather than only petrol, so the decline from 0.3459 in the retail petrol equation to "
+    "0.1777 in the bridge equation is consistent with attenuation across related fuel-sensitive "
+    "prices rather than a strict one-to-one movement. Because the bridge sample is short, the "
+    "estimate is not used to make a "
     "20-year headline claim."
 )
 
@@ -859,27 +875,27 @@ add_para_math(
 heading1("5. Robustness, diagnostics, and limitations")
 
 add_para_math(
-    "The headline WPI result is robust to decomposing the rupee oil shock into a Brent component "
-    "and an exchange-rate component. The decomposition gives CPT^{+} = 0.0309 (p = 0.0234) and "
-    "CPT^{-} = 0.0375 (p < 0.001), with an asymmetry p-value of 0.7039. These figures are within "
-    "rounding distance of the rupee-shock benchmark and confirm that the modest wholesale "
-    "endpoint result does not depend on combining the two components. Bootstrap symmetry tests "
-    "with 4,999 replications fail to reject CPT^{+} = CPT^{-} for headline WPI and for WPI Fuel "
-    "and Power, which is consistent with the HAC-based asymmetry tests in Table 2."
+    "The WPI result holds up even when the rupee oil shock is broken down into a Brent "
+    "component and an exchange-rate component. Decomposing leads to CPT^{+} = 0.0309 "
+    "(p = 0.0234) and CPT^{-} = 0.0375 (p < 0.001), with an asymmetry p-value of 0.7039. These "
+    "figures sit very close to the rupee-shock benchmark and confirm that the small wholesale "
+    "endpoint result does not rely on combining the two components. Bootstrap symmetry tests "
+    "with 4,999 iterations do not reject CPT^{+} = CPT^{-} for headline WPI and for WPI Fuel "
+    "and Power, which is consistent with the HAC-based asymmetry tests shown in Table 2."
 )
 
 add_para_math(
-    "The diagnostics are summarised in Table 3. The headline WPI model passes the Breusch-Godfrey "
-    "test for serial correlation, the HAC-RESET test for functional form, and the recursive CUSUM "
-    "test for parameter stability. The preferred WPI Fuel and Power model passes the same gate. "
-    "The older full-sample pooled Fuel and Power model fails HAC-RESET and is retained only as "
-    "context. The headline CPI M1 model passes the mandatory gate. The PPAC retail petrol model "
-    "passes the mechanism gate. Two alternative CPI specifications explored in the supporting work, "
-    "M2 and M3, are not claim-bearing because their diagnostics are rejected. The symmetry checks "
-    "do not reject symmetry in the main wholesale and consumer endpoint models, so asymmetry is not "
-    "the central finding of the paper. Unit-root "
-    "tests support using log differences, with the WPI inflation KPSS caveat read alongside the "
-    "Bai-Perron break evidence."
+    "The diagnostics are summarised in Table 3. The headline WPI model clears the "
+    "Breusch-Godfrey test for serial correlation, the HAC-RESET test for functional form, and "
+    "the recursive CUSUM test for parameter stability, and the preferred WPI Fuel and Power "
+    "model clears the same gate. The older full-sample pooled Fuel and Power model fails "
+    "HAC-RESET and is retained only for context. The headline CPI M1 model clears the "
+    "mandatory gate, and the PPAC retail petrol model clears the mechanism gate. The two CPI "
+    "alternatives, M2 and M3, are not claim-bearing because their diagnostics are rejected, so "
+    "they did not pass and are left outside the main conclusions. Where the symmetry checks do "
+    "not reject symmetry in the main wholesale and consumer endpoint models, asymmetry is not "
+    "the key finding of the paper. The unit-root tests favour the use of log differences, with "
+    "the WPI inflation KPSS caveat read alongside the Bai-Perron break evidence."
 )
 
 add_table(
@@ -918,10 +934,11 @@ add_para_math(
     "sample than headline CPI and WPI, and is therefore used as bridge rather than primary "
     "evidence. PPAC retail petrol uses Delhi prices, which are treated as a retail fuel-channel "
     "proxy rather than a complete national retail measure. The preferred WPI Fuel and Power model "
-    "uses a shorter post-2010 excluding-COVID sample; the full-sample pooled model is shown only "
-    "as caveated context. The pre/post-2010 split is suggestive institutional evidence, not a "
-    "clean deregulation experiment. The layered map is not a single mechanical WPI-to-CPI causal "
-    "chain; it is a set of layer-by-layer pass-through equations that share a common interpretation."
+    "uses a shorter post-2010 sample that excludes the COVID months, and the full-sample pooled "
+    "model is shown only as caveated comparative context. The pre/post-2010 split is not intended "
+    "to establish a clean or experimental deregulation result; it reflects institutional evidence. "
+    "The layered map is not a single mechanical WPI-to-CPI causal chain; it is made up of "
+    "layer-by-layer pass-through equations that share a common interpretation."
 )
 
 # ============================================================
@@ -952,21 +969,23 @@ add_para_math(
 )
 
 add_para_math(
-    "The conclusion can be put in short form. The research question is whether oil-price shocks "
-    "propagate uniformly across Indian price layers or whether they become less pronounced as the "
-    "index gets broader. The estimates support a descriptive attenuation reading: WPI Fuel and "
-    "Power and retail petrol are the high-pass-through fuel layers, CPI Fuel and Light is smaller, "
+    "In conclusion, we asked whether oil-price shocks manifest uniformly across the layers of "
+    "Indian pricing, or whether their effects dissipate as we move to broader indices. The "
+    "estimates provide evidence for the second case. WPI Fuel and Power and retail petrol sit "
+    "at the top as the high-pass-through fuel layers, CPI Fuel and Light comes in smaller, "
     "headline WPI is moderate, and headline CPI is weak and statistically insignificant. The "
-    "formal consumer-chain test rejects equality between retail petrol and headline CPI. The "
-    "preferred WPI Fuel and Power estimate passes the diagnostic gate, while the full-sample "
-    "pooled version is retained only as context. Asymmetry is not the main finding; only retail "
-    "petrol shows a marginal asymmetry result at the ten per cent level. The post-2010 split "
-    "supports stronger pass-through under more market-linked fuel pricing, but it is institutional "
-    "rather than causal evidence."
+    "formal consumer-chain Wald test rejects equality between retail petrol and headline CPI, "
+    "which we consider the cleanest piece of evidence for the attenuation story. The preferred "
+    "WPI Fuel and Power estimate makes it through the diagnostic gate, and the full-sample "
+    "pooled version is kept only as context. Asymmetry is not the headline finding here; only "
+    "retail petrol shows a marginal asymmetry result, and only at the ten per cent level. The "
+    "pre/post-2010 split is consistent with stronger pass-through once fuel pricing became more "
+    "market-linked, but we read this as institutional context rather than a clean causal "
+    "estimate."
 )
 
-add_para("The main lesson is that oil shocks do not disappear in India, but they lose force as "
-         "they move from fuel prices to broad consumer inflation.")
+add_para("The main takeaway is straightforward: oil shocks do not disappear in India, but they "
+         "lose force as they travel from fuel prices to broad consumer inflation.")
 
 # ============================================================
 # REFERENCES (APA)
